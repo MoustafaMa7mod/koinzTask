@@ -12,7 +12,7 @@ class NotesViewController: UIViewController {
     // MARK: - outlets
     @IBOutlet weak var tableView: UITableView!
     
-    let arra = ["dsgdfgdfkjghdfklgjfdhglkjdsfhgklsdjfhgsdkjfghsdkljghdsjfdskfsdlkfjghsdflkjghsdlkfgjshdflgkjsdhfgjksdhfglksdjhfgdskjfghsdlkjfghsdkfljghdskfjghsdfklghsdfkjgsd" , "dsfghdjfsdhfkjshfajfsaf" , "Mostafa"]
+    let arra = [String]()
     
     // MARK: - main functions
     override func viewDidLoad() {
@@ -40,6 +40,8 @@ class NotesViewController: UIViewController {
     
     
     @objc func AddNewNote(){
+        let viewController = AddNoteViewController.instantiate()
+        self.navigationController?.pushViewController(viewController, animated: true)
     }
 
     
