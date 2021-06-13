@@ -23,6 +23,8 @@
 		238ECBC3267662DD0078F569 /* EmptyView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 238ECBC2267662DD0078F569 /* EmptyView.xib */; };
 		238ECBC8267696E60078F569 /* UITextViewPlaceHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 238ECBC7267696E60078F569 /* UITextViewPlaceHolder.swift */; };
 		23ED818A267699CE003F00FE /* AddNoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23ED8189267699CE003F00FE /* AddNoteViewController.swift */; };
+		23ED81A02676B17B003F00FE /* NoteObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23ED819F2676B17B003F00FE /* NoteObject.swift */; };
+		23ED81A82676B95A003F00FE /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23ED81A72676B95A003F00FE /* UIImage.swift */; };
 		679653F1C83BDF723C9AF81B /* Pods_Koniz.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE0173B03CC86CC3171C1C76 /* Pods_Koniz.framework */; };
 		8D6966185ED4D1758830CABB /* Pods_Koniz_KonizUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5896BDF96F69C039EA9DFC4 /* Pods_Koniz_KonizUITests.framework */; };
 		B54FDBAA85D20910456B9372 /* Pods_KonizTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00805729676A99186CB670C8 /* Pods_KonizTests.framework */; };
@@ -70,6 +72,8 @@
 		238ECBC2267662DD0078F569 /* EmptyView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EmptyView.xib; sourceTree = "<group>"; };
 		238ECBC7267696E60078F569 /* UITextViewPlaceHolder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextViewPlaceHolder.swift; sourceTree = "<group>"; };
 		23ED8189267699CE003F00FE /* AddNoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNoteViewController.swift; sourceTree = "<group>"; };
+		23ED819F2676B17B003F00FE /* NoteObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteObject.swift; sourceTree = "<group>"; };
+		23ED81A72676B95A003F00FE /* UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
 		8A3DF6807900E3177493BAE9 /* Pods-KonizTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KonizTests.debug.xcconfig"; path = "Target Support Files/Pods-KonizTests/Pods-KonizTests.debug.xcconfig"; sourceTree = "<group>"; };
 		8B3590BA771F13C19F2C0200 /* Pods-Koniz.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Koniz.release.xcconfig"; path = "Target Support Files/Pods-Koniz/Pods-Koniz.release.xcconfig"; sourceTree = "<group>"; };
 		9E5CFDA4F7740C91CC7F96B5 /* Pods-Koniz.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Koniz.debug.xcconfig"; path = "Target Support Files/Pods-Koniz/Pods-Koniz.debug.xcconfig"; sourceTree = "<group>"; };
@@ -161,7 +165,7 @@
 			isa = PBXGroup;
 			children = (
 				238ECBB8267662AC0078F569 /* Empty TableView */,
-				238ECB7A2676530E0078F569 /* View */,
+				23ED819A2676B15F003F00FE /* Home */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -170,7 +174,7 @@
 			isa = PBXGroup;
 			children = (
 				238ECB7B2676530E0078F569 /* Notes.storyboard */,
-				238ECBA1267655A80078F569 /* ListNotes */,
+				238ECBA1267655A80078F569 /* List Notes */,
 				23ED8188267699A7003F00FE /* Add Note */,
 			);
 			path = View;
@@ -201,18 +205,19 @@
 				238ECB92267653AB0078F569 /* UITableView+Extensions.swift */,
 				238ECB97267653C20078F569 /* UIView.swift */,
 				238ECBC7267696E60078F569 /* UITextViewPlaceHolder.swift */,
+				23ED81A72676B95A003F00FE /* UIImage.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
 		};
-		238ECBA1267655A80078F569 /* ListNotes */ = {
+		238ECBA1267655A80078F569 /* List Notes */ = {
 			isa = PBXGroup;
 			children = (
 				238ECBA5267655CE0078F569 /* Cell */,
 				238ECB7D2676530E0078F569 /* NotesViewController.swift */,
 				238ECB9C267655430078F569 /* NotesVC+TableViewDelegate.swift */,
 			);
-			path = ListNotes;
+			path = "List Notes";
 			sourceTree = "<group>";
 		};
 		238ECBA5267655CE0078F569 /* Cell */ = {
@@ -247,6 +252,23 @@
 				23ED8189267699CE003F00FE /* AddNoteViewController.swift */,
 			);
 			path = "Add Note";
+			sourceTree = "<group>";
+		};
+		23ED819A2676B15F003F00FE /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				23ED819E2676B16B003F00FE /* Model */,
+				238ECB7A2676530E0078F569 /* View */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		23ED819E2676B16B003F00FE /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				23ED819F2676B17B003F00FE /* NoteObject.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		3918F4ADCD7A05019225E01F /* Pods */ = {
@@ -514,8 +536,10 @@
 			files = (
 				238ECB98267653C20078F569 /* UIView.swift in Sources */,
 				238ECB93267653AB0078F569 /* UITableView+Extensions.swift in Sources */,
+				23ED81A82676B95A003F00FE /* UIImage.swift in Sources */,
 				23ED818A267699CE003F00FE /* AddNoteViewController.swift in Sources */,
 				238ECB892676530E0078F569 /* AppDelegate.swift in Sources */,
+				23ED81A02676B17B003F00FE /* NoteObject.swift in Sources */,
 				238ECBA8267655E60078F569 /* NoteCell.swift in Sources */,
 				238ECB862676530E0078F569 /* NotesViewController.swift in Sources */,
 				238ECBBB267662D40078F569 /* EmptyView.swift in Sources */,

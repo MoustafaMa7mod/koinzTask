@@ -141,7 +141,7 @@
                                         </constraints>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                <real key="value" value="5"/>
+                                                <real key="value" value="0.0"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </imageView>
@@ -189,6 +189,13 @@
                             <constraint firstItem="HN4-Fi-SDj" firstAttribute="top" secondItem="pbS-iH-FTr" secondAttribute="bottom" constant="24" id="wBW-ya-lTj"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="addImageView" destination="exS-PV-5PR" id="fMT-yq-70Y"/>
+                        <outlet property="addLocationView" destination="HN4-Fi-SDj" id="jdV-CD-tjM"/>
+                        <outlet property="noteBodyTextField" destination="pbS-iH-FTr" id="D09-f6-ovh"/>
+                        <outlet property="noteTitleTextField" destination="F1a-oJ-pNC" id="fzq-gQ-CnC"/>
+                        <outlet property="notedImage" destination="sxr-iF-Wra" id="Niy-fW-TUZ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2A9-Tt-tCg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
