@@ -20,6 +20,7 @@ class NotesViewController: UIViewController {
         navigationConfig()
         tableViewConfig()
         
+        
     }
     
     // MARK:- table view setting
@@ -36,9 +37,7 @@ class NotesViewController: UIViewController {
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(AddNewNote))
 
     }
-    
-    
-    
+
     @objc func AddNewNote(){
         let viewController = AddNoteViewController.instantiate()
         self.navigationController?.pushViewController(viewController, animated: true)

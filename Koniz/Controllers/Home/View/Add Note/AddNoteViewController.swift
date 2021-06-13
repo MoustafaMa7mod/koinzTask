@@ -7,7 +7,7 @@
 
 import UIKit
 import RealmSwift
-
+import CoreLocation
 
 class AddNoteViewController: UIViewController {
   
@@ -26,12 +26,26 @@ class AddNoteViewController: UIViewController {
         return controller
     }()
     
+    // MARK:- variables
+    let locationManager = CLLocationManager()
+    let viewModel = AddNoteViewModel()
+
+    
     // MARK: - main functions
     override func viewDidLoad() {
         super.viewDidLoad()
         addGesterImage()
         addGesterLocation()
+        print(Realm.Configuration.defaultConfiguration.fileURL)
+
     }
+    
+    // MARK: - get instance from storyboard to push from other view controller
+    class func instantiate() -> AddNoteViewController {
+        let storyboard : UIStoryboard = UIStoryboard(name: "Notes", bundle: nil)
+        return storyboard.instantiateViewController(withIdentifier: String(describing: self)) as! AddNoteViewController
+    }
+
     
     // MARK:- add gester view to upload image
     private func addGesterImage(){
@@ -47,39 +61,18 @@ class AddNoteViewController: UIViewController {
         addLocationView.addGestureRecognizer(tapGestureRecognizer)
     }
     
-    // MARK: - get instance from storyboard to push from other view controller
-    class func instantiate() -> AddNoteViewController {
-        let storyboard : UIStoryboard = UIStoryboard(name: "Notes", bundle: nil)
-        return storyboard.instantiateViewController(withIdentifier: String(describing: self)) as! AddNoteViewController
-    }
-
-    func getCurrentDate() -> String{
-        let date = Date()
-        let formatter = DateFormatter()
-        formatter.dateFormat = "dd/MM/yyyy HH:mm:ss"
-        let result = formatter.string(from: date)
-
-        return result
-    }
-    
     @objc func uploadPhoto(tapGestureRecognizer: UITapGestureRecognizer){
         present(imagePickerController, animated: true, completion: nil)
     }
     
     @objc func getCurrentUserLocation(tapGestureRecognizer: UITapGestureRecognizer){
-        let realm = try! Realm()
-        let object = NoteObject()
-        if let image = UIImage().readImageFromDocs(imageName: "noteImage") {
-            object.notePhoto = image
-            
-            try! realm.write{
-                realm.add(object)
-            }
-            
-            UIImage().deleteImageFromDocs(imageName: "noteImage")
-            print(image)
+        self.locationManager.requestAlwaysAuthorization()
+        self.locationManager.requestWhenInUseAuthorization()
+        if CLLocationManager.locationServicesEnabled() {
+            locationManager.delegate = self
+            locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
+            locationManager.startUpdatingLocation()
         }
-        
     }
 }
 
@@ -88,7 +81,6 @@ extension AddNoteViewController: UINavigationControllerDelegate, UIImagePickerCo
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         let selectedImage = info[.originalImage] as? UIImage
         self.notedImage.image = selectedImage
-        print(self.getCurrentDate())
         self.notedImage.image?.writeImageToDocs(imageName: "noteImage")
         self.dismiss(animated: true, completion: nil)
     }

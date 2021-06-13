@@ -43,5 +43,11 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>Allow Koniz to detect current location</string>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>Allow Koniz to detect current location</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Allow Koniz to detect current location</string>
 </dict>
 </plist>
