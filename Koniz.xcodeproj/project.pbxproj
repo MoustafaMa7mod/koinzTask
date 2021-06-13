@@ -3,13 +3,13 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		238ECB2026764EF50078F569 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 238ECB1F26764EF50078F569 /* AppDelegate.swift */; };
-		238ECB2426764EF50078F569 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 238ECB2326764EF50078F569 /* ViewController.swift */; };
-		238ECB2726764EF50078F569 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 238ECB2526764EF50078F569 /* Main.storyboard */; };
+		238ECB2426764EF50078F569 /* NotesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 238ECB2326764EF50078F569 /* NotesViewController.swift */; };
+		238ECB2726764EF50078F569 /* Notes.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 238ECB2526764EF50078F569 /* Notes.storyboard */; };
 		238ECB2926764EF80078F569 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 238ECB2826764EF80078F569 /* Assets.xcassets */; };
 		238ECB2C26764EF80078F569 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 238ECB2A26764EF80078F569 /* LaunchScreen.storyboard */; };
 		238ECB3726764EF80078F569 /* KonizTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 238ECB3626764EF80078F569 /* KonizTests.swift */; };
@@ -41,8 +41,8 @@
 		0A968E57353D6A18D844956A /* Pods-Koniz-KonizUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Koniz-KonizUITests.release.xcconfig"; path = "Target Support Files/Pods-Koniz-KonizUITests/Pods-Koniz-KonizUITests.release.xcconfig"; sourceTree = "<group>"; };
 		238ECB1C26764EF50078F569 /* Koniz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Koniz.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		238ECB1F26764EF50078F569 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		238ECB2326764EF50078F569 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		238ECB2626764EF50078F569 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		238ECB2326764EF50078F569 /* NotesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesViewController.swift; sourceTree = "<group>"; };
+		238ECB2626764EF50078F569 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Notes.storyboard; sourceTree = "<group>"; };
 		238ECB2826764EF80078F569 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		238ECB2B26764EF80078F569 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		238ECB2D26764EF80078F569 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -114,12 +114,9 @@
 		238ECB1E26764EF50078F569 /* Koniz */ = {
 			isa = PBXGroup;
 			children = (
-				238ECB1F26764EF50078F569 /* AppDelegate.swift */,
-				238ECB2326764EF50078F569 /* ViewController.swift */,
-				238ECB2526764EF50078F569 /* Main.storyboard */,
-				238ECB2826764EF80078F569 /* Assets.xcassets */,
-				238ECB2A26764EF80078F569 /* LaunchScreen.storyboard */,
-				238ECB2D26764EF80078F569 /* Info.plist */,
+				238ECB6B2676508A0078F569 /* Resources */,
+				238ECB6A267650780078F569 /* Helper */,
+				238ECB69267650590078F569 /* Controllers */,
 			);
 			path = Koniz;
 			sourceTree = "<group>";
@@ -142,6 +139,41 @@
 			path = KonizUITests;
 			sourceTree = "<group>";
 		};
+		238ECB69267650590078F569 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				238ECB6F267651630078F569 /* View */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		238ECB6A267650780078F569 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
+		238ECB6B2676508A0078F569 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				238ECB2D26764EF80078F569 /* Info.plist */,
+				238ECB2A26764EF80078F569 /* LaunchScreen.storyboard */,
+				238ECB2826764EF80078F569 /* Assets.xcassets */,
+				238ECB1F26764EF50078F569 /* AppDelegate.swift */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		238ECB6F267651630078F569 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				238ECB2526764EF50078F569 /* Notes.storyboard */,
+				238ECB2326764EF50078F569 /* NotesViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		3918F4ADCD7A05019225E01F /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -152,7 +184,6 @@
 				8A3DF6807900E3177493BAE9 /* Pods-KonizTests.debug.xcconfig */,
 				B86714D6F5103DA4264474C6 /* Pods-KonizTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -276,7 +307,7 @@
 			files = (
 				238ECB2C26764EF80078F569 /* LaunchScreen.storyboard in Resources */,
 				238ECB2926764EF80078F569 /* Assets.xcassets in Resources */,
-				238ECB2726764EF50078F569 /* Main.storyboard in Resources */,
+				238ECB2726764EF50078F569 /* Notes.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -404,7 +435,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				238ECB2426764EF50078F569 /* ViewController.swift in Sources */,
+				238ECB2426764EF50078F569 /* NotesViewController.swift in Sources */,
 				238ECB2026764EF50078F569 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -441,12 +472,12 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		238ECB2526764EF50078F569 /* Main.storyboard */ = {
+		238ECB2526764EF50078F569 /* Notes.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				238ECB2626764EF50078F569 /* Base */,
 			);
-			name = Main.storyboard;
+			name = Notes.storyboard;
 			sourceTree = "<group>";
 		};
 		238ECB2A26764EF80078F569 /* LaunchScreen.storyboard */ = {
@@ -584,7 +615,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = VQU76VH8CY;
-				INFOPLIST_FILE = Koniz/Info.plist;
+				INFOPLIST_FILE = Koniz/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -604,7 +635,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = VQU76VH8CY;
-				INFOPLIST_FILE = Koniz/Info.plist;
+				INFOPLIST_FILE = Koniz/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
