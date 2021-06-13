@@ -22,6 +22,18 @@ extension UITableView {
         
         return cell
     }
+    
+    func setEmptyView() {
+        let bundle = Bundle(for: EmptyView.self)
+        let nib = bundle.loadNibNamed("EmptyView", owner: self, options: nil)
+        if let emptyView = nib?.first as? EmptyView {
+            self.backgroundView = emptyView
+        }
+    }
+
+    func restore() {
+        self.backgroundView = nil
+    }
         
 }
 
