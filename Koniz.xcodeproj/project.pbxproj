@@ -7,13 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		238ECB2026764EF50078F569 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 238ECB1F26764EF50078F569 /* AppDelegate.swift */; };
-		238ECB2426764EF50078F569 /* NotesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 238ECB2326764EF50078F569 /* NotesViewController.swift */; };
-		238ECB2726764EF50078F569 /* Notes.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 238ECB2526764EF50078F569 /* Notes.storyboard */; };
-		238ECB2926764EF80078F569 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 238ECB2826764EF80078F569 /* Assets.xcassets */; };
-		238ECB2C26764EF80078F569 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 238ECB2A26764EF80078F569 /* LaunchScreen.storyboard */; };
 		238ECB3726764EF80078F569 /* KonizTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 238ECB3626764EF80078F569 /* KonizTests.swift */; };
 		238ECB4226764EF80078F569 /* KonizUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 238ECB4126764EF80078F569 /* KonizUITests.swift */; };
+		238ECB852676530E0078F569 /* Notes.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 238ECB7B2676530E0078F569 /* Notes.storyboard */; };
+		238ECB862676530E0078F569 /* NotesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 238ECB7D2676530E0078F569 /* NotesViewController.swift */; };
+		238ECB872676530E0078F569 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 238ECB7F2676530E0078F569 /* Assets.xcassets */; };
+		238ECB882676530E0078F569 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 238ECB802676530E0078F569 /* LaunchScreen.storyboard */; };
+		238ECB892676530E0078F569 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 238ECB822676530E0078F569 /* AppDelegate.swift */; };
+		238ECB8A2676530E0078F569 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 238ECB832676530E0078F569 /* Info.plist */; };
 		679653F1C83BDF723C9AF81B /* Pods_Koniz.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE0173B03CC86CC3171C1C76 /* Pods_Koniz.framework */; };
 		8D6966185ED4D1758830CABB /* Pods_Koniz_KonizUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5896BDF96F69C039EA9DFC4 /* Pods_Koniz_KonizUITests.framework */; };
 		B54FDBAA85D20910456B9372 /* Pods_KonizTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00805729676A99186CB670C8 /* Pods_KonizTests.framework */; };
@@ -40,18 +41,18 @@
 		00805729676A99186CB670C8 /* Pods_KonizTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KonizTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0A968E57353D6A18D844956A /* Pods-Koniz-KonizUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Koniz-KonizUITests.release.xcconfig"; path = "Target Support Files/Pods-Koniz-KonizUITests/Pods-Koniz-KonizUITests.release.xcconfig"; sourceTree = "<group>"; };
 		238ECB1C26764EF50078F569 /* Koniz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Koniz.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		238ECB1F26764EF50078F569 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		238ECB2326764EF50078F569 /* NotesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesViewController.swift; sourceTree = "<group>"; };
-		238ECB2626764EF50078F569 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Notes.storyboard; sourceTree = "<group>"; };
-		238ECB2826764EF80078F569 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		238ECB2B26764EF80078F569 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		238ECB2D26764EF80078F569 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		238ECB3226764EF80078F569 /* KonizTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KonizTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		238ECB3626764EF80078F569 /* KonizTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KonizTests.swift; sourceTree = "<group>"; };
 		238ECB3826764EF80078F569 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		238ECB3D26764EF80078F569 /* KonizUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KonizUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		238ECB4126764EF80078F569 /* KonizUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KonizUITests.swift; sourceTree = "<group>"; };
 		238ECB4326764EF80078F569 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		238ECB7C2676530E0078F569 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Notes.storyboard; sourceTree = "<group>"; };
+		238ECB7D2676530E0078F569 /* NotesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotesViewController.swift; sourceTree = "<group>"; };
+		238ECB7F2676530E0078F569 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		238ECB812676530E0078F569 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		238ECB822676530E0078F569 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		238ECB832676530E0078F569 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8A3DF6807900E3177493BAE9 /* Pods-KonizTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KonizTests.debug.xcconfig"; path = "Target Support Files/Pods-KonizTests/Pods-KonizTests.debug.xcconfig"; sourceTree = "<group>"; };
 		8B3590BA771F13C19F2C0200 /* Pods-Koniz.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Koniz.release.xcconfig"; path = "Target Support Files/Pods-Koniz/Pods-Koniz.release.xcconfig"; sourceTree = "<group>"; };
 		9E5CFDA4F7740C91CC7F96B5 /* Pods-Koniz.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Koniz.debug.xcconfig"; path = "Target Support Files/Pods-Koniz/Pods-Koniz.debug.xcconfig"; sourceTree = "<group>"; };
@@ -114,9 +115,9 @@
 		238ECB1E26764EF50078F569 /* Koniz */ = {
 			isa = PBXGroup;
 			children = (
-				238ECB6B2676508A0078F569 /* Resources */,
-				238ECB6A267650780078F569 /* Helper */,
-				238ECB69267650590078F569 /* Controllers */,
+				238ECB792676530E0078F569 /* Controllers */,
+				238ECB842676530E0078F569 /* Helper */,
+				238ECB7E2676530E0078F569 /* Resources */,
 			);
 			path = Koniz;
 			sourceTree = "<group>";
@@ -139,39 +140,39 @@
 			path = KonizUITests;
 			sourceTree = "<group>";
 		};
-		238ECB69267650590078F569 /* Controllers */ = {
+		238ECB792676530E0078F569 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				238ECB6F267651630078F569 /* View */,
+				238ECB7A2676530E0078F569 /* View */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
 		};
-		238ECB6A267650780078F569 /* Helper */ = {
+		238ECB7A2676530E0078F569 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				238ECB7B2676530E0078F569 /* Notes.storyboard */,
+				238ECB7D2676530E0078F569 /* NotesViewController.swift */,
 			);
-			path = Helper;
+			path = View;
 			sourceTree = "<group>";
 		};
-		238ECB6B2676508A0078F569 /* Resources */ = {
+		238ECB7E2676530E0078F569 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				238ECB2D26764EF80078F569 /* Info.plist */,
-				238ECB2A26764EF80078F569 /* LaunchScreen.storyboard */,
-				238ECB2826764EF80078F569 /* Assets.xcassets */,
-				238ECB1F26764EF50078F569 /* AppDelegate.swift */,
+				238ECB7F2676530E0078F569 /* Assets.xcassets */,
+				238ECB802676530E0078F569 /* LaunchScreen.storyboard */,
+				238ECB822676530E0078F569 /* AppDelegate.swift */,
+				238ECB832676530E0078F569 /* Info.plist */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
 		};
-		238ECB6F267651630078F569 /* View */ = {
+		238ECB842676530E0078F569 /* Helper */ = {
 			isa = PBXGroup;
 			children = (
-				238ECB2526764EF50078F569 /* Notes.storyboard */,
-				238ECB2326764EF50078F569 /* NotesViewController.swift */,
 			);
-			path = View;
+			path = Helper;
 			sourceTree = "<group>";
 		};
 		3918F4ADCD7A05019225E01F /* Pods */ = {
@@ -305,9 +306,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				238ECB2C26764EF80078F569 /* LaunchScreen.storyboard in Resources */,
-				238ECB2926764EF80078F569 /* Assets.xcassets in Resources */,
-				238ECB2726764EF50078F569 /* Notes.storyboard in Resources */,
+				238ECB8A2676530E0078F569 /* Info.plist in Resources */,
+				238ECB882676530E0078F569 /* LaunchScreen.storyboard in Resources */,
+				238ECB872676530E0078F569 /* Assets.xcassets in Resources */,
+				238ECB852676530E0078F569 /* Notes.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -435,8 +437,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				238ECB2426764EF50078F569 /* NotesViewController.swift in Sources */,
-				238ECB2026764EF50078F569 /* AppDelegate.swift in Sources */,
+				238ECB892676530E0078F569 /* AppDelegate.swift in Sources */,
+				238ECB862676530E0078F569 /* NotesViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -472,18 +474,18 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		238ECB2526764EF50078F569 /* Notes.storyboard */ = {
+		238ECB7B2676530E0078F569 /* Notes.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				238ECB2626764EF50078F569 /* Base */,
+				238ECB7C2676530E0078F569 /* Base */,
 			);
 			name = Notes.storyboard;
 			sourceTree = "<group>";
 		};
-		238ECB2A26764EF80078F569 /* LaunchScreen.storyboard */ = {
+		238ECB802676530E0078F569 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				238ECB2B26764EF80078F569 /* Base */,
+				238ECB812676530E0078F569 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
