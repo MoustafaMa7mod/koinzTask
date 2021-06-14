@@ -8,17 +8,20 @@
 import UIKit
 import RealmSwift
 import CoreLocation
+import RxCocoa
+import RxSwift
 
 class AddNoteViewController: UIViewController {
-  
- 
+   
     // MARK: - outlets
     @IBOutlet weak var noteTitleTextField: UITextField!
     @IBOutlet weak var noteBodyTextField: UITextViewPlaceHolder!
     @IBOutlet weak var addLocationView: UIView!
     @IBOutlet weak var addImageView: UIView!
     @IBOutlet weak var notedImage: UIImageView!
+    @IBOutlet weak var noteLocationLabel: UILabel!
     
+    // MARK:- variables
     lazy var imagePickerController: UIImagePickerController = {
         let controller = UIImagePickerController()
         controller.delegate = self
@@ -26,9 +29,9 @@ class AddNoteViewController: UIViewController {
         return controller
     }()
     
-    // MARK:- variables
     let locationManager = CLLocationManager()
     let viewModel = AddNoteViewModel()
+    var disposed = DisposeBag()
 
     
     // MARK: - main functions
@@ -36,6 +39,17 @@ class AddNoteViewController: UIViewController {
         super.viewDidLoad()
         addGesterImage()
         addGesterLocation()
+        configure(with: viewModel)
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Add", style: .plain, target: self, action: #selector(addTapped))
+//        guard let path = Realm.Configuration.defaultConfiguration.fileURL?.path else {
+//            fatalError("no realm path")
+//        }
+//
+//        do {
+//            try FileManager().removeItem(atPath: path)
+//        } catch {
+//            fatalError("couldn't remove at path")
+//        }
         print(Realm.Configuration.defaultConfiguration.fileURL)
 
     }
@@ -46,6 +60,11 @@ class AddNoteViewController: UIViewController {
         return storyboard.instantiateViewController(withIdentifier: String(describing: self)) as! AddNoteViewController
     }
 
+    // MARK:- config RX
+    func configure(with viewModel: AddNoteViewModel) {
+        noteTitleTextField.rx.text.map { $0 ?? "" }.bind(to: viewModel.noteTitle).disposed(by: disposed)
+        noteBodyTextField.rx.text.map { $0 ?? "" }.bind(to: viewModel.noteBody).disposed(by: disposed)
+    }
     
     // MARK:- add gester view to upload image
     private func addGesterImage(){
@@ -61,8 +80,10 @@ class AddNoteViewController: UIViewController {
         addLocationView.addGestureRecognizer(tapGestureRecognizer)
     }
     
+    
+    // MARK: - Actions
     @objc func uploadPhoto(tapGestureRecognizer: UITapGestureRecognizer){
-        present(imagePickerController, animated: true, completion: nil)
+        self.present(imagePickerController, animated: true, completion: nil)
     }
     
     @objc func getCurrentUserLocation(tapGestureRecognizer: UITapGestureRecognizer){
@@ -74,6 +95,11 @@ class AddNoteViewController: UIViewController {
             locationManager.startUpdatingLocation()
         }
     }
+    
+    @objc func addTapped(){
+        self.viewModel.insertNote()
+        self.navigationController?.popViewController(animated: true)
+    }
 }
 
 extension AddNoteViewController: UINavigationControllerDelegate, UIImagePickerControllerDelegate {
@@ -81,8 +107,14 @@ extension AddNoteViewController: UINavigationControllerDelegate, UIImagePickerCo
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         let selectedImage = info[.originalImage] as? UIImage
         self.notedImage.image = selectedImage
-        self.notedImage.image?.writeImageToDocs(imageName: "noteImage")
-        self.dismiss(animated: true, completion: nil)
+        self.notedImage.image?.writeImageToDocs(imageName: self.viewModel.imageLocalName)
+        self.dismiss(animated: true, completion: { [weak self] in
+            guard let self = self else {return}
+            if let image = UIImage().readImageFromDocs(imageName: self.viewModel.imageLocalName) {
+                self.viewModel.setImagePath(image)
+                UIImage().deleteImageFromDocs(imageName: self.viewModel.imageLocalName)
+            }
+        })
     }
     
 }

@@ -193,6 +193,7 @@
                         <outlet property="addImageView" destination="exS-PV-5PR" id="fMT-yq-70Y"/>
                         <outlet property="addLocationView" destination="HN4-Fi-SDj" id="jdV-CD-tjM"/>
                         <outlet property="noteBodyTextField" destination="pbS-iH-FTr" id="D09-f6-ovh"/>
+                        <outlet property="noteLocationLabel" destination="gbf-Wg-1o1" id="cPe-Kg-Gsy"/>
                         <outlet property="noteTitleTextField" destination="F1a-oJ-pNC" id="fzq-gQ-CnC"/>
                         <outlet property="notedImage" destination="sxr-iF-Wra" id="Niy-fW-TUZ"/>
                     </connections>
