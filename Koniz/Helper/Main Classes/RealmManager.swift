@@ -14,8 +14,9 @@ class RealmManager{
     let realm = try? Realm()
 
     func insertIntoDatabase(_ object: NoteObject){
-        try? realm?.write {
-            realm?.add(object)
+        guard let realm = realm else { return }
+        try? realm.write {
+            realm.add(object)
         }
     }
     
@@ -25,17 +26,24 @@ class RealmManager{
     }
     
     func fetchFromRealm() -> Results<NoteObject>?{
-        let object = realm?.objects(NoteObject.self)
-        guard let noteObject = object else {
-            return nil
-        }
-        return noteObject
+        guard let realm = realm else { return nil }
+        let object = realm.objects(NoteObject.self)
+        return object
     }
     
-    func updateIntoDatabase(obect: NoteObject , closure:()->Void){
-        try? realm?.write {
+    
+    func updateIntoDatabase(object: NoteObject , closure:()->Void){
+        guard let realm = realm else { return }
+        try? realm.write {
             closure()
-            realm?.create(NoteObject.self, value: obect, update: .modified)
+            realm.create(NoteObject.self, value: object, update: .modified)
+        }
+    }
+    
+    func deleteFromDatabase(_ object: NoteObject) {
+        guard let realm = realm else { return }
+        try? realm.write {
+            realm.delete(object)
         }
     }
     

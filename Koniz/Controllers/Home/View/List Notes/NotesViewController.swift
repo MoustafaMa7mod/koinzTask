@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 class NotesViewController: UIViewController {
 
@@ -14,20 +15,41 @@ class NotesViewController: UIViewController {
     
     // MARK:- variables
     let notesViewModel = NotesViewModel()
-    
+    var notificationToken: NotificationToken?
+
     // MARK: - main functions
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationConfig()
         tableViewConfig()
+        addObserver()
         loadData()
     }
-    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        loadData()
-
+        addObserver()
     }
+    
+    // MARK: - observe realm when add and delete and update
+    func addObserver() {
+        notificationToken = self.notesViewModel.notes?.observe() { [weak self] (changes) in
+            guard let self = self else {return}
+            
+            switch changes {
+            case .initial(let notes):
+                print("Initial case \(notes.count)")
+            case .update( _, let deletions, let insertions, let modifications):
+                print(deletions)
+                print(modifications)
+                print(insertions)
+                self.loadData()
+            case .error(let error):
+                print(error.localizedDescription)
+            }
+        }
+        
+    }
+
     
     // MARK:- table view setting
     private func tableViewConfig(){

@@ -39,6 +39,18 @@ extension NotesViewController: UITableViewDelegate , UITableViewDataSource {
         self.navigationController?.pushViewController(viewController, animated: true)        
     }
     
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if (editingStyle == .delete) {
+            self.notesViewModel.deleteNote(withIndex: indexPath.row) { deleted in
+                print(deleted)
+            }
+           
+        }
+    }
     
 
     

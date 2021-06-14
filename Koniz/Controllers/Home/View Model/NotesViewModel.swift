@@ -10,16 +10,26 @@ import RealmSwift
 
 class NotesViewModel {
     
+    var notes: Results<NoteObject>?
     var notesArray = [NoteObject]()
+    var notificationToken: NotificationToken?
+
     
     func getData(completion: @escaping(Bool)->Void) {
         if let noteList = RealmManager.shared.fetchFromRealm() {
+            notes = noteList
             notesArray = Array(noteList)
-            notesArray.sort(by: {self.convertDateToString($0.created).compare(self.convertDateToString($1.created)) == .orderedDescending})
+            notesArray = noteList.sorted(by: {self.convertDateToString($0.created).compare(self.convertDateToString($1.created)) == .orderedDescending})
             completion(true)
         }
     }
-        
+    
+    func deleteNote(withIndex index: Int ,completion: @escaping(Bool)->Void){
+        let object = self.getEachNotes(index)
+        RealmManager.shared.deleteFromDatabase(object)
+        completion(true)
+    }
+    
     func getCountOfNotes() -> Int{
         return notesArray.count
     }
@@ -38,9 +48,5 @@ class NotesViewModel {
         return dateValue
 
     }
-    
-    
-    
-    
     
 }

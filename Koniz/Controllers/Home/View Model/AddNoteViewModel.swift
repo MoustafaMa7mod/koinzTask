@@ -70,7 +70,7 @@ class AddNoteViewModel {
     }
     
     func updateNote() {
-        RealmManager.shared.updateIntoDatabase(obect: self.noteObject) {
+        RealmManager.shared.updateIntoDatabase(object: self.noteObject) {
             parseDataFromView()
         }
     }

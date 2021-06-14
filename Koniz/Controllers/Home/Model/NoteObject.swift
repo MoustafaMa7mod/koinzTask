@@ -23,6 +23,4 @@ class NoteObject: Object {
         return "id"
     }
     
-    
-  
 }

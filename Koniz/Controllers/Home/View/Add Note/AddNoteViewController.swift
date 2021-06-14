@@ -143,7 +143,7 @@ class AddNoteViewController: UIViewController {
         }else{
             viewModel.updateNote()
         }
-//        self.navigationController?.popViewController(animated: true)
+        self.navigationController?.popViewController(animated: true)
     }
 }
 
