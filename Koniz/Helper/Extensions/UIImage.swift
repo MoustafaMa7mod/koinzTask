@@ -24,16 +24,17 @@ extension UIImage {
         
     }
     
-    func readImageFromDocs(imageName: String)->String?{
+    func renderImageFromDocs(imageName: String)->UIImage?{
         let documentsPath = (FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first?.path ?? "")
             as String
 
         let filePath = URL(fileURLWithPath: documentsPath).appendingPathComponent(imageName).path
+        print(filePath)
         if FileManager.default.fileExists(atPath: filePath) {
-            return filePath
+            return UIImage(contentsOfFile: filePath)
         } else {
             return nil
-        }
+        }        
     }
     
     func deleteImageFromDocs(imageName: String){

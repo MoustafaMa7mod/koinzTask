@@ -12,13 +12,15 @@ class NotesViewController: UIViewController {
     // MARK: - outlets
     @IBOutlet weak var tableView: UITableView!
     
-    let arra = [String]()
+    // MARK:- variables
+    let notesViewModel = NotesViewModel()
     
     // MARK: - main functions
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationConfig()
         tableViewConfig()
+        loadData()
     }
     
     // MARK:- table view setting
@@ -39,6 +41,15 @@ class NotesViewController: UIViewController {
     @objc func AddNewNote(){
         let viewController = AddNoteViewController.instantiate()
         self.navigationController?.pushViewController(viewController, animated: true)
+    }
+    
+    private func loadData(){
+        notesViewModel.getData { [weak self] loadTableView in
+            guard let self = self else {return}
+            self.tableView.reloadData()
+        }
+        
+
     }
 
     

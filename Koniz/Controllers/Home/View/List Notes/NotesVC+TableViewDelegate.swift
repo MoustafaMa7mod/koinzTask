@@ -15,18 +15,19 @@ extension NotesViewController: UITableViewDelegate , UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if arra.count == 0 {
+        if notesViewModel.getCountOfNotes() == 0 {
             self.tableView.setEmptyView()
         } else {
             self.tableView.restore()
         }
 
-        return arra.count
+        return notesViewModel.getCountOfNotes()
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeue() as NoteCell
-        cell.noteBodyLabel.text = arra[indexPath.row]
+        let object = notesViewModel.getEachNotes(indexPath.row)
+        cell.configCell(object)
         return cell
     }
 

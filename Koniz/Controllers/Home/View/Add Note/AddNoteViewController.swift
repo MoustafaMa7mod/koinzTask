@@ -116,14 +116,9 @@ extension AddNoteViewController: UINavigationControllerDelegate, UIImagePickerCo
         let selectedImage = info[.originalImage] as? UIImage
         self.notedImage.image = selectedImage
         self.notedImage.image?.writeImageToDocs(imageName: self.viewModel.imageLocalName)
-        self.dismiss(animated: true, completion: { [weak self] in
-            guard let self = self else {return}
-            if let image = UIImage().readImageFromDocs(imageName: self.viewModel.imageLocalName) {
-                self.imagePathValue.accept(image)
-                self.configure(with: self.viewModel)
-                UIImage().deleteImageFromDocs(imageName: self.viewModel.imageLocalName)
-            }
-        })
+        self.imagePathValue.accept(self.viewModel.imageLocalName)
+        self.configure(with: self.viewModel)
+        self.dismiss(animated: true, completion: nil)
     }
     
 }

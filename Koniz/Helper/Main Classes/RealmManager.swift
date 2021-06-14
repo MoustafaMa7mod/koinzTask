@@ -20,11 +20,14 @@ class RealmManager{
     }
     
     func incrementaID() -> Int {
-        let realm = try! Realm()
         let id = (realm.objects(NoteObject.self).sorted(byKeyPath: "id" , ascending: true).max(ofProperty: "id") as Int? ?? 0) + 1
         return id
     }
     
+    func fetchFromRealm() -> Results<NoteObject>{
+        let object = realm.objects(NoteObject.self)
+        return object
+    }
     
     
 }
