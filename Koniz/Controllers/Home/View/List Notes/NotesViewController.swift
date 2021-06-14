@@ -19,8 +19,6 @@ class NotesViewController: UIViewController {
         super.viewDidLoad()
         navigationConfig()
         tableViewConfig()
-        
-        
     }
     
     // MARK:- table view setting

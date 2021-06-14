@@ -31,6 +31,10 @@ class AddNoteViewController: UIViewController {
     
     let locationManager = CLLocationManager()
     let viewModel = AddNoteViewModel()
+    var latitudeValue = BehaviorRelay<Double>(value: 0.0)
+    var longitudeValue = BehaviorRelay<Double>(value: 0.0)
+    var imagePathValue = BehaviorRelay<String>(value: "")
+    
     var disposed = DisposeBag()
 
     
@@ -60,10 +64,14 @@ class AddNoteViewController: UIViewController {
         return storyboard.instantiateViewController(withIdentifier: String(describing: self)) as! AddNoteViewController
     }
 
-    // MARK:- config RX
+    // MARK:- config RX to bind data
     func configure(with viewModel: AddNoteViewModel) {
-        noteTitleTextField.rx.text.map { $0 ?? "" }.bind(to: viewModel.noteTitle).disposed(by: disposed)
-        noteBodyTextField.rx.text.map { $0 ?? "" }.bind(to: viewModel.noteBody).disposed(by: disposed)
+        self.noteTitleTextField.rx.text.map { $0 ?? "" }.bind(to: viewModel.noteTitle).disposed(by: disposed)
+        self.noteBodyTextField.rx.text.map { $0 ?? "" }.bind(to: viewModel.noteBody).disposed(by: disposed)
+        self.latitudeValue.bind(to: viewModel.noteLatitude).disposed(by: disposed)
+        self.longitudeValue.bind(to: viewModel.noteLongitude).disposed(by: disposed)
+        self.imagePathValue.bind(to: self.viewModel.noteImagePath).disposed(by: self.disposed)
+
     }
     
     // MARK:- add gester view to upload image
@@ -111,7 +119,8 @@ extension AddNoteViewController: UINavigationControllerDelegate, UIImagePickerCo
         self.dismiss(animated: true, completion: { [weak self] in
             guard let self = self else {return}
             if let image = UIImage().readImageFromDocs(imageName: self.viewModel.imageLocalName) {
-                self.viewModel.setImagePath(image)
+                self.imagePathValue.accept(image)
+                self.configure(with: self.viewModel)
                 UIImage().deleteImageFromDocs(imageName: self.viewModel.imageLocalName)
             }
         })

@@ -21,9 +21,8 @@ class AddNoteViewModel {
     var notePlace = BehaviorRelay<String>(value: "")
     let noteLatitude = BehaviorRelay<Double>(value: 0.0)
     let noteLongitude = BehaviorRelay<Double>(value: 0.0)
+    var disposed = DisposeBag()
 
-    
-    
     func getCurrentDate(){
         let date = Date()
         let formatter = DateFormatter()
@@ -36,6 +35,10 @@ class AddNoteViewModel {
     func parseDataFromView() {
         self.noteObject.noteTitle = noteTitle.value
         self.noteObject.noteBody = noteBody.value
+        self.noteObject.noteLatitude = noteLatitude.value
+        self.noteObject.noteLongitude = noteLongitude.value
+        self.noteObject.notePhoto = noteImagePath.value
+        self.noteObject.notePlaceName = notePlace.value
     }
     
     func setLatitudeAndLongitudeIntoModel(_ lat:Double , _ long: Double){
@@ -54,20 +57,19 @@ class AddNoteViewModel {
         RealmManager.shared.insertIntoDatabase(self.noteObject)
     }
     
-    func getDetailsOfLocationFromGeocoder(userLocation: CLLocation , completion:@escaping(Bool , String)->Void){
+    func getDetailsOfLocationFromGeocoder(userLocation: CLLocation , completion:@escaping(Bool)->Void){
         let geocoder = CLGeocoder()
         geocoder.reverseGeocodeLocation(userLocation) { (placemarks, error) in
             if (error != nil){
                 print("error in reverseGeocode")
-                completion(false , "")
+                completion(false)
             }
             if let placemarks = placemarks {
                 let placemark = placemarks as [CLPlacemark]
                 if placemark.count>0{
                     let placemark = placemarks[0]
-                    self.noteObject.notePlaceName = "\(placemark.locality!), \(placemark.administrativeArea!), \(placemark.country!)"
-
-                    completion(true , self.noteObject.notePlaceName)
+                    self.notePlace.accept("\(placemark.locality!), \(placemark.administrativeArea!), \(placemark.country!)")
+                    completion(true)
                 }
             }
             
