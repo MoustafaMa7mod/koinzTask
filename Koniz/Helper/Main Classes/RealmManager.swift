@@ -32,9 +32,10 @@ class RealmManager{
         return noteObject
     }
     
-    func updateIntoDatabase(closure:()->Void){
+    func updateIntoDatabase(obect: NoteObject , closure:()->Void){
         try? realm?.write {
             closure()
+            realm?.create(NoteObject.self, value: obect, update: .modified)
         }
     }
     

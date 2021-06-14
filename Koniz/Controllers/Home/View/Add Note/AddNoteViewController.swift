@@ -138,13 +138,12 @@ class AddNoteViewController: UIViewController {
     }
     
     @objc func addTapped(){
-//        guard let viewModel = viewModel else {return}
         if operationType == .add {
             viewModel.insertNote()
         }else{
             viewModel.updateNote()
         }
-        self.navigationController?.popViewController(animated: true)
+//        self.navigationController?.popViewController(animated: true)
     }
 }
 

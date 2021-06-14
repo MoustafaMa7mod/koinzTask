@@ -23,6 +23,12 @@ class NotesViewController: UIViewController {
         loadData()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        loadData()
+
+    }
+    
     // MARK:- table view setting
     private func tableViewConfig(){
         tableView.dataSource = self

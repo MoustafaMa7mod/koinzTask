@@ -13,9 +13,6 @@ extension UIImage {
         let documentsPath = (FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first?.path ?? "")
             as String
         let destinationPath = URL(fileURLWithPath: documentsPath).appendingPathComponent(imageName)
-
-        debugPrint("destination path is",destinationPath)
-
         do {
             try self.pngData()?.write(to: destinationPath)
         } catch {
@@ -29,7 +26,6 @@ extension UIImage {
             as String
 
         let filePath = URL(fileURLWithPath: documentsPath).appendingPathComponent(imageName).path
-        print(filePath)
         if FileManager.default.fileExists(atPath: filePath) {
             return UIImage(contentsOfFile: filePath)
         } else {

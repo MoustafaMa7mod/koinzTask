@@ -14,7 +14,6 @@ extension AddNoteViewController: CLLocationManagerDelegate {
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         guard let locValue: CLLocationCoordinate2D = manager.location?.coordinate else { return }
-        print("locations = \(locValue.latitude) \(locValue.longitude)")
         self.latitudeValue.accept(locValue.latitude)
         self.longitudeValue.accept(locValue.longitude)
         self.configure(with: viewModel)

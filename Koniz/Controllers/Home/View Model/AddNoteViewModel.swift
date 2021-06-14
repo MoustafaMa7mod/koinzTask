@@ -46,6 +46,7 @@ class AddNoteViewModel {
     }
     
     func loadDataFromRealm(_ noteObject: NoteObject){
+        self.noteObject = noteObject
         imageLocalName = "\(noteObject.id)-noteImage.png"
         self.noteTitle.accept(noteObject.noteTitle)
         self.noteBody.accept(noteObject.noteBody)
@@ -69,7 +70,7 @@ class AddNoteViewModel {
     }
     
     func updateNote() {
-        RealmManager.shared.updateIntoDatabase {
+        RealmManager.shared.updateIntoDatabase(obect: self.noteObject) {
             parseDataFromView()
         }
     }
