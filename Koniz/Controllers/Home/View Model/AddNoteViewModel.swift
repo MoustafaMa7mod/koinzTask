@@ -9,6 +9,7 @@ import Foundation
 import CoreLocation
 import RxCocoa
 import RxSwift
+import RealmSwift
 
 class AddNoteViewModel {
     
@@ -22,6 +23,9 @@ class AddNoteViewModel {
     let noteLatitude = BehaviorRelay<Double>(value: 0.0)
     let noteLongitude = BehaviorRelay<Double>(value: 0.0)
     var disposed = DisposeBag()
+    
+    var reloadView: () -> () = {  }
+
 
     func getCurrentDate(){
         let date = Date()
@@ -41,13 +45,20 @@ class AddNoteViewModel {
         self.noteObject.notePlaceName = notePlace.value
     }
     
-    func setLatitudeAndLongitudeIntoModel(_ lat:Double , _ long: Double){
-        self.noteObject.noteLatitude = lat
-        self.noteObject.noteLongitude = long
-    }
-    
-    func setImagePath(_ imagePath:String){
-        self.noteObject.notePhoto = imagePath
+    func loadDataFromRealm(_ noteObject: NoteObject){
+        imageLocalName = "\(noteObject.id)-noteImage.png"
+        self.noteTitle.accept(noteObject.noteTitle)
+        self.noteBody.accept(noteObject.noteBody)
+        self.noteImagePath.accept(noteObject.notePhoto)
+        self.notePlace.accept(noteObject.notePlaceName)
+        self.noteLatitude.accept(noteObject.noteLatitude)
+        self.noteLongitude.accept(noteObject.noteLongitude)
+        self.noteAddDate.accept(noteObject.created)
+        
+        DispatchQueue.main.async {
+             self.reloadView()
+        }
+
     }
     
     func insertNote() {
@@ -55,6 +66,12 @@ class AddNoteViewModel {
         getCurrentDate()
         noteObject.id = RealmManager.shared.incrementaID()
         RealmManager.shared.insertIntoDatabase(self.noteObject)
+    }
+    
+    func updateNote() {
+        RealmManager.shared.updateIntoDatabase {
+            parseDataFromView()
+        }
     }
     
     func getDetailsOfLocationFromGeocoder(userLocation: CLLocation , completion:@escaping(Bool)->Void){

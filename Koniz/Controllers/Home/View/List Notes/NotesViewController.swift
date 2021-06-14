@@ -40,6 +40,7 @@ class NotesViewController: UIViewController {
 
     @objc func AddNewNote(){
         let viewController = AddNoteViewController.instantiate()
+        viewController.operationType = .add
         self.navigationController?.pushViewController(viewController, animated: true)
     }
     
@@ -48,8 +49,6 @@ class NotesViewController: UIViewController {
             guard let self = self else {return}
             self.tableView.reloadData()
         }
-        
-
     }
 
     

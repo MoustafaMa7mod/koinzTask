@@ -11,6 +11,11 @@ import CoreLocation
 import RxCocoa
 import RxSwift
 
+enum OperationType {
+    case edit
+    case add
+}
+
 class AddNoteViewController: UIViewController {
    
     // MARK: - outlets
@@ -30,11 +35,12 @@ class AddNoteViewController: UIViewController {
     }()
     
     let locationManager = CLLocationManager()
-    let viewModel = AddNoteViewModel()
+    var viewModel = AddNoteViewModel()
     var latitudeValue = BehaviorRelay<Double>(value: 0.0)
     var longitudeValue = BehaviorRelay<Double>(value: 0.0)
     var imagePathValue = BehaviorRelay<String>(value: "")
-    
+    var noteObject: NoteObject?
+    var operationType: OperationType = .add
     var disposed = DisposeBag()
 
     
@@ -43,8 +49,11 @@ class AddNoteViewController: UIViewController {
         super.viewDidLoad()
         addGesterImage()
         addGesterLocation()
-        configure(with: viewModel)
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Add", style: .plain, target: self, action: #selector(addTapped))
+        print(Realm.Configuration.defaultConfiguration.fileURL)
+
+        configure(with: viewModel)
+        showDataWhenEditNote(viewModel: viewModel)
 //        guard let path = Realm.Configuration.defaultConfiguration.fileURL?.path else {
 //            fatalError("no realm path")
 //        }
@@ -54,7 +63,6 @@ class AddNoteViewController: UIViewController {
 //        } catch {
 //            fatalError("couldn't remove at path")
 //        }
-        print(Realm.Configuration.defaultConfiguration.fileURL)
 
     }
     
@@ -70,8 +78,33 @@ class AddNoteViewController: UIViewController {
         self.noteBodyTextField.rx.text.map { $0 ?? "" }.bind(to: viewModel.noteBody).disposed(by: disposed)
         self.latitudeValue.bind(to: viewModel.noteLatitude).disposed(by: disposed)
         self.longitudeValue.bind(to: viewModel.noteLongitude).disposed(by: disposed)
-        self.imagePathValue.bind(to: self.viewModel.noteImagePath).disposed(by: self.disposed)
+        self.imagePathValue.bind(to: viewModel.noteImagePath).disposed(by: self.disposed)
+    }
+    
+    func showDataWhenEditNote(viewModel: AddNoteViewModel){
+        if operationType == .edit {
+            viewModel.loadDataFromRealm(noteObject ?? NoteObject())
+        }
+        
 
+        viewModel.reloadView = { [weak self] in
+            guard let self = self else {return}
+            self.noteTitleTextField.text = viewModel.noteTitle.value
+            self.noteBodyTextField.text = viewModel.noteBody.value
+            self.noteLocationLabel.text = viewModel.notePlace.value
+            self.latitudeValue.accept(viewModel.noteLatitude.value)
+            self.longitudeValue.accept(viewModel.noteLongitude.value)
+            self.imagePathValue.accept(viewModel.noteImagePath.value)
+
+            if let image = UIImage().renderImageFromDocs(imageName: viewModel.noteImagePath.value) {
+                self.notedImage.image = image
+            }else{
+//                self?.updateLogo(urlString: (self?.addExpenseViewModel.imageURL.value)!)
+            }
+            self.configure(with: viewModel)
+        }
+        
+     
     }
     
     // MARK:- add gester view to upload image
@@ -105,7 +138,12 @@ class AddNoteViewController: UIViewController {
     }
     
     @objc func addTapped(){
-        self.viewModel.insertNote()
+//        guard let viewModel = viewModel else {return}
+        if operationType == .add {
+            viewModel.insertNote()
+        }else{
+            viewModel.updateNote()
+        }
         self.navigationController?.popViewController(animated: true)
     }
 }
@@ -115,9 +153,15 @@ extension AddNoteViewController: UINavigationControllerDelegate, UIImagePickerCo
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         let selectedImage = info[.originalImage] as? UIImage
         self.notedImage.image = selectedImage
-        self.notedImage.image?.writeImageToDocs(imageName: self.viewModel.imageLocalName)
-        self.imagePathValue.accept(self.viewModel.imageLocalName)
-        self.configure(with: self.viewModel)
+        if operationType == .edit {
+            self.notedImage.image?.deleteImageFromDocs(imageName: viewModel.imageLocalName)
+            self.notedImage.image?.writeImageToDocs(imageName: viewModel.imageLocalName )
+        }else{
+            self.notedImage.image?.writeImageToDocs(imageName: viewModel.imageLocalName )
+        }
+        
+        self.imagePathValue.accept(viewModel.imageLocalName)
+        self.configure(with: viewModel)
         self.dismiss(animated: true, completion: nil)
     }
     

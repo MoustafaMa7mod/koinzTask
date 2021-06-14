@@ -17,7 +17,7 @@ extension AddNoteViewController: CLLocationManagerDelegate {
         print("locations = \(locValue.latitude) \(locValue.longitude)")
         self.latitudeValue.accept(locValue.latitude)
         self.longitudeValue.accept(locValue.longitude)
-        self.configure(with: self.viewModel)
+        self.configure(with: viewModel)
         let userLocation :CLLocation = locations[0] as CLLocation
         self.getDetailsOfLocation(userLocation: userLocation)
     }

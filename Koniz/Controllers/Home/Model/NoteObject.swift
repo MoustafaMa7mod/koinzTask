@@ -18,13 +18,11 @@ class NoteObject: Object {
     @objc dynamic var notePlaceName = ""
     @objc dynamic var created: String = ""
 
-    //increment auto id
-//       Roteiro_Add.id = Roteiro_Add.IncrementaID()
-
     
     override static func primaryKey() -> String? {
         return "id"
     }
+    
     
   
 }

@@ -13,9 +13,11 @@ class NotesViewModel {
     var notesArray = [NoteObject]()
     
     func getData(completion: @escaping(Bool)->Void) {
-        notesArray = Array(RealmManager.shared.fetchFromRealm())
-        notesArray.sort(by: {self.convertDateToString($0.created).compare(self.convertDateToString($1.created)) == .orderedDescending})
-        completion(true)
+        if let noteList = RealmManager.shared.fetchFromRealm() {
+            notesArray = Array(noteList)
+            notesArray.sort(by: {self.convertDateToString($0.created).compare(self.convertDateToString($1.created)) == .orderedDescending})
+            completion(true)
+        }
     }
         
     func getCountOfNotes() -> Int{

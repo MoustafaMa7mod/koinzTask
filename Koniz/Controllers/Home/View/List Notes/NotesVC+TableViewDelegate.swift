@@ -30,6 +30,16 @@ extension NotesViewController: UITableViewDelegate , UITableViewDataSource {
         cell.configCell(object)
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let object = notesViewModel.getEachNotes(indexPath.row)
+        let viewController = AddNoteViewController.instantiate()
+        viewController.noteObject = object
+        viewController.operationType = .edit
+        self.navigationController?.pushViewController(viewController, animated: true)        
+    }
+    
+    
 
     
 }

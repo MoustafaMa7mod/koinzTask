@@ -11,22 +11,31 @@ import RealmSwift
 class RealmManager{
     
     static var shared = RealmManager()
-    let realm = try! Realm()
+    let realm = try? Realm()
 
     func insertIntoDatabase(_ object: NoteObject){
-        try! realm.write {
-            realm.add(object)
+        try? realm?.write {
+            realm?.add(object)
         }
     }
     
     func incrementaID() -> Int {
-        let id = (realm.objects(NoteObject.self).sorted(byKeyPath: "id" , ascending: true).max(ofProperty: "id") as Int? ?? 0) + 1
+        let id = (realm?.objects(NoteObject.self).sorted(byKeyPath: "id" , ascending: true).max(ofProperty: "id") as Int? ?? 0) + 1
         return id
     }
     
-    func fetchFromRealm() -> Results<NoteObject>{
-        let object = realm.objects(NoteObject.self)
-        return object
+    func fetchFromRealm() -> Results<NoteObject>?{
+        let object = realm?.objects(NoteObject.self)
+        guard let noteObject = object else {
+            return nil
+        }
+        return noteObject
+    }
+    
+    func updateIntoDatabase(closure:()->Void){
+        try? realm?.write {
+            closure()
+        }
     }
     
     
