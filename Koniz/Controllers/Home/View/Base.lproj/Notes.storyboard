@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="bqd-KA-5DA">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <rect key="frame" x="8" y="6" width="398" height="884"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <connections>
                                     <outlet property="dataSource" destination="BYZ-38-t0r" id="meR-Rm-lFH"/>
@@ -29,10 +29,10 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="bqd-KA-5DA" secondAttribute="trailing" id="5oA-VX-KmY"/>
-                            <constraint firstItem="bqd-KA-5DA" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="SU5-H3-WqN"/>
-                            <constraint firstAttribute="bottom" secondItem="bqd-KA-5DA" secondAttribute="bottom" id="gRA-2n-emk"/>
-                            <constraint firstItem="bqd-KA-5DA" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="xof-YN-Ftp"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="bqd-KA-5DA" secondAttribute="trailing" constant="8" id="5oA-VX-KmY"/>
+                            <constraint firstItem="bqd-KA-5DA" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="6" id="SU5-H3-WqN"/>
+                            <constraint firstAttribute="bottom" secondItem="bqd-KA-5DA" secondAttribute="bottom" constant="6" id="gRA-2n-emk"/>
+                            <constraint firstItem="bqd-KA-5DA" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="8" id="xof-YN-Ftp"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Ogv-p8-yBr"/>
@@ -52,25 +52,43 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder=" Note Title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="F1a-oJ-pNC">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OZG-R1-GhQ">
                                 <rect key="frame" x="24" y="78" width="366" height="50"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Note Title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="F1a-oJ-pNC">
+                                        <rect key="frame" x="4" y="0.0" width="362" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="y9b-Cz-2LD"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="4"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </textField>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="y9b-Cz-2LD"/>
+                                    <constraint firstAttribute="trailing" secondItem="F1a-oJ-pNC" secondAttribute="trailing" id="0ky-tA-Oud"/>
+                                    <constraint firstAttribute="bottom" secondItem="F1a-oJ-pNC" secondAttribute="bottom" id="BhO-Di-DhA"/>
+                                    <constraint firstItem="F1a-oJ-pNC" firstAttribute="top" secondItem="OZG-R1-GhQ" secondAttribute="top" id="Ibb-jM-whL"/>
+                                    <constraint firstItem="F1a-oJ-pNC" firstAttribute="leading" secondItem="OZG-R1-GhQ" secondAttribute="leading" constant="4" id="Ti1-ox-uIg"/>
+                                    <constraint firstAttribute="height" constant="50" id="YjP-s0-Dak"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
                                 <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="4"/>
+                                    </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
                                         <real key="value" value="1"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
                                         <color key="value" red="0.85098039219999999" green="0.85098039219999999" blue="0.85098039219999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                     </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="4"/>
-                                    </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
-                            </textField>
+                            </view>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="pbS-iH-FTr" customClass="UITextViewPlaceHolder" customModule="Koniz" customModuleProvider="target">
                                 <rect key="frame" x="24" y="152" width="366" height="300"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -175,17 +193,17 @@
                         <viewLayoutGuide key="safeArea" id="hK5-fH-wju"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="pbS-iH-FTr" firstAttribute="leading" secondItem="OZG-R1-GhQ" secondAttribute="leading" id="A1c-6K-rZ7"/>
+                            <constraint firstItem="OZG-R1-GhQ" firstAttribute="leading" secondItem="hK5-fH-wju" secondAttribute="leading" constant="24" id="AZd-Q4-ypY"/>
                             <constraint firstItem="HN4-Fi-SDj" firstAttribute="leading" secondItem="pbS-iH-FTr" secondAttribute="leading" id="Al3-GR-2Xs"/>
-                            <constraint firstItem="pbS-iH-FTr" firstAttribute="trailing" secondItem="F1a-oJ-pNC" secondAttribute="trailing" id="GmM-xI-XJV"/>
                             <constraint firstItem="exS-PV-5PR" firstAttribute="top" secondItem="HN4-Fi-SDj" secondAttribute="bottom" constant="24" id="I9z-D3-LOT"/>
-                            <constraint firstItem="pbS-iH-FTr" firstAttribute="top" secondItem="F1a-oJ-pNC" secondAttribute="bottom" constant="24" id="M97-Hq-pZx"/>
                             <constraint firstItem="exS-PV-5PR" firstAttribute="leading" secondItem="HN4-Fi-SDj" secondAttribute="leading" id="Ra6-Nw-xhI"/>
-                            <constraint firstItem="F1a-oJ-pNC" firstAttribute="top" secondItem="hK5-fH-wju" secondAttribute="top" constant="34" id="Vso-P3-J7d"/>
+                            <constraint firstItem="pbS-iH-FTr" firstAttribute="trailing" secondItem="OZG-R1-GhQ" secondAttribute="trailing" id="V2S-xI-JKE"/>
                             <constraint firstItem="HN4-Fi-SDj" firstAttribute="trailing" secondItem="pbS-iH-FTr" secondAttribute="trailing" id="ZDs-1u-nca"/>
-                            <constraint firstItem="hK5-fH-wju" firstAttribute="trailing" secondItem="F1a-oJ-pNC" secondAttribute="trailing" constant="24" id="kaa-Ts-YJZ"/>
+                            <constraint firstItem="pbS-iH-FTr" firstAttribute="top" secondItem="OZG-R1-GhQ" secondAttribute="bottom" constant="24" id="liW-dR-c0E"/>
+                            <constraint firstItem="hK5-fH-wju" firstAttribute="trailing" secondItem="OZG-R1-GhQ" secondAttribute="trailing" constant="24" id="luM-Hz-hC5"/>
+                            <constraint firstItem="OZG-R1-GhQ" firstAttribute="top" secondItem="hK5-fH-wju" secondAttribute="top" constant="34" id="neX-M3-OzE"/>
                             <constraint firstItem="exS-PV-5PR" firstAttribute="trailing" secondItem="HN4-Fi-SDj" secondAttribute="trailing" id="omN-Ov-siw"/>
-                            <constraint firstItem="pbS-iH-FTr" firstAttribute="leading" secondItem="F1a-oJ-pNC" secondAttribute="leading" id="pZR-Ne-bQd"/>
-                            <constraint firstItem="F1a-oJ-pNC" firstAttribute="leading" secondItem="hK5-fH-wju" secondAttribute="leading" constant="24" id="sbb-M9-2om"/>
                             <constraint firstItem="HN4-Fi-SDj" firstAttribute="top" secondItem="pbS-iH-FTr" secondAttribute="bottom" constant="24" id="wBW-ya-lTj"/>
                         </constraints>
                     </view>

@@ -23,9 +23,11 @@ extension AddNoteViewController: CLLocationManagerDelegate {
     
     private func getDetailsOfLocation(userLocation: CLLocation){
         viewModel.getDetailsOfLocationFromGeocoder(userLocation: userLocation) { [weak self] loadData in
+            guard let self = self else {return}
             if loadData {
-                guard let self = self else {return}
                 self.noteLocationLabel.text = self.viewModel.notePlace.value
+            }else{
+                self.noteLocationLabel.text = self.viewModel.showLocationDetails()
             }
         }
     }

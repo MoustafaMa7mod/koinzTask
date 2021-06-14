@@ -75,6 +75,19 @@ class AddNoteViewModel {
         }
     }
     
+    // when faild to connect with network show lat and long instead of place name
+    func showLocationDetails() -> String?{
+        if self.notePlace.value == "" {
+            if self.noteLatitude.value != 0.0 &&  self.noteLongitude.value != 0.0{
+                return "\(self.noteLatitude.value) - \(self.noteLongitude.value)"
+            }else{
+                return nil
+            }
+        }else{
+            return self.notePlace.value
+        }
+    }
+    
     func getDetailsOfLocationFromGeocoder(userLocation: CLLocation , completion:@escaping(Bool)->Void){
         let geocoder = CLGeocoder()
         geocoder.reverseGeocodeLocation(userLocation) { (placemarks, error) in

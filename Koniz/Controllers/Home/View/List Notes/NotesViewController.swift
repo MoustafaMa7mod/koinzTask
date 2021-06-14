@@ -38,11 +38,13 @@ class NotesViewController: UIViewController {
             switch changes {
             case .initial(let notes):
                 print("Initial case \(notes.count)")
-            case .update( _, let deletions, let insertions, let modifications):
+                self.updateDataInRealm(notes)
+            case .update(let notes, let deletions, let insertions, let modifications):
+                print(notes.count)
                 print(deletions)
                 print(modifications)
                 print(insertions)
-                self.loadData()
+                self.updateDataInRealm(notes)
             case .error(let error):
                 print(error.localizedDescription)
             }
@@ -78,9 +80,12 @@ class NotesViewController: UIViewController {
             self.tableView.reloadData()
         }
     }
-
     
-
-
+    private func updateDataInRealm(_ notesUpdated: Results<NoteObject>? ){
+        self.notesViewModel.updateCurrentData(notesUpdated: notesUpdated) { [weak self] loadTableView in
+            guard let self = self else {return}
+            self.tableView.reloadData()
+        }
+    }
 }
 

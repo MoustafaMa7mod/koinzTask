@@ -24,6 +24,15 @@ class NotesViewModel {
         }
     }
     
+    func updateCurrentData( notesUpdated: Results<NoteObject>? ,completion: @escaping(Bool)->Void) {
+        if let noteList = notesUpdated {
+            notes = notesUpdated
+            notesArray = Array(noteList)
+            notesArray = noteList.sorted(by: {self.convertDateToString($0.created).compare(self.convertDateToString($1.created)) == .orderedDescending})
+            completion(true)
+        }
+    }
+    
     func deleteNote(withIndex index: Int ,completion: @escaping(Bool)->Void){
         let object = self.getEachNotes(index)
         RealmManager.shared.deleteFromDatabase(object)

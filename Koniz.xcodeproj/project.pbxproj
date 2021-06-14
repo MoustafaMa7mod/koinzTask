@@ -23,6 +23,7 @@
 		238ECBC3267662DD0078F569 /* EmptyView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 238ECBC2267662DD0078F569 /* EmptyView.xib */; };
 		238ECBC8267696E60078F569 /* UITextViewPlaceHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 238ECBC7267696E60078F569 /* UITextViewPlaceHolder.swift */; };
 		23E9146E2677969500B8BC61 /* NotesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E9146D2677969500B8BC61 /* NotesViewModel.swift */; };
+		23E91473267812BE00B8BC61 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E91472267812BE00B8BC61 /* UIViewController.swift */; };
 		23ED818A267699CE003F00FE /* AddNoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23ED8189267699CE003F00FE /* AddNoteViewController.swift */; };
 		23ED81A02676B17B003F00FE /* NoteObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23ED819F2676B17B003F00FE /* NoteObject.swift */; };
 		23ED81A82676B95A003F00FE /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23ED81A72676B95A003F00FE /* UIImage.swift */; };
@@ -76,6 +77,7 @@
 		238ECBC2267662DD0078F569 /* EmptyView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EmptyView.xib; sourceTree = "<group>"; };
 		238ECBC7267696E60078F569 /* UITextViewPlaceHolder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextViewPlaceHolder.swift; sourceTree = "<group>"; };
 		23E9146D2677969500B8BC61 /* NotesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesViewModel.swift; sourceTree = "<group>"; };
+		23E91472267812BE00B8BC61 /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
 		23ED8189267699CE003F00FE /* AddNoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNoteViewController.swift; sourceTree = "<group>"; };
 		23ED819F2676B17B003F00FE /* NoteObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteObject.swift; sourceTree = "<group>"; };
 		23ED81A72676B95A003F00FE /* UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
@@ -215,6 +217,7 @@
 				238ECB97267653C20078F569 /* UIView.swift */,
 				238ECBC7267696E60078F569 /* UITextViewPlaceHolder.swift */,
 				23ED81A72676B95A003F00FE /* UIImage.swift */,
+				23E91472267812BE00B8BC61 /* UIViewController.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -576,6 +579,7 @@
 				23E9146E2677969500B8BC61 /* NotesViewModel.swift in Sources */,
 				238ECBBB267662D40078F569 /* EmptyView.swift in Sources */,
 				238ECB9D267655430078F569 /* NotesVC+TableViewDelegate.swift in Sources */,
+				23E91473267812BE00B8BC61 /* UIViewController.swift in Sources */,
 				238ECBC8267696E60078F569 /* UITextViewPlaceHolder.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

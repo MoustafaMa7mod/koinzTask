@@ -48,7 +48,6 @@ extension NotesViewController: UITableViewDelegate , UITableViewDataSource {
             self.notesViewModel.deleteNote(withIndex: indexPath.row) { deleted in
                 print(deleted)
             }
-           
         }
     }
     

@@ -49,11 +49,11 @@ class AddNoteViewController: UIViewController {
         super.viewDidLoad()
         addGesterImage()
         addGesterLocation()
-        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Add", style: .plain, target: self, action: #selector(addTapped))
-        print(Realm.Configuration.defaultConfiguration.fileURL)
-
+        navigationConfig()
         configure(with: viewModel)
         showDataWhenEditNote(viewModel: viewModel)
+        
+//        print(Realm.Configuration.defaultConfiguration.fileURL)
 //        guard let path = Realm.Configuration.defaultConfiguration.fileURL?.path else {
 //            fatalError("no realm path")
 //        }
@@ -66,6 +66,12 @@ class AddNoteViewController: UIViewController {
 
     }
     
+    // MARK:- navigation setting
+    private func navigationConfig(){
+        title = "Add Note"
+        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "left-arrow"), style: .plain, target: self, action: #selector(addTapped))
+
+    }
     // MARK: - get instance from storyboard to push from other view controller
     class func instantiate() -> AddNoteViewController {
         let storyboard : UIStoryboard = UIStoryboard(name: "Notes", bundle: nil)
@@ -85,15 +91,20 @@ class AddNoteViewController: UIViewController {
         if operationType == .edit {
             viewModel.loadDataFromRealm(noteObject ?? NoteObject())
         }
-        
-
         viewModel.reloadView = { [weak self] in
             guard let self = self else {return}
             self.noteTitleTextField.text = viewModel.noteTitle.value
             self.noteBodyTextField.text = viewModel.noteBody.value
-            self.noteLocationLabel.text = viewModel.notePlace.value
             self.latitudeValue.accept(viewModel.noteLatitude.value)
             self.longitudeValue.accept(viewModel.noteLongitude.value)
+
+            if viewModel.notePlace.value == "" {
+                if self.latitudeValue.value != 0.0 &&  self.longitudeValue.value != 0.0{
+                    self.noteLocationLabel.text = viewModel.showLocationDetails()
+                }
+            }else{
+                self.noteLocationLabel.text = viewModel.notePlace.value
+            }
             self.imagePathValue.accept(viewModel.noteImagePath.value)
 
             if let image = UIImage().renderImageFromDocs(imageName: viewModel.noteImagePath.value) {
@@ -138,6 +149,12 @@ class AddNoteViewController: UIViewController {
     }
     
     @objc func addTapped(){
+        guard  self.noteTitleTextField.text != "" else {
+            self.showAlertView(withMessage: "Please add note title.") { action in
+                self.navigationController?.popViewController(animated: true)
+            }
+            return
+        }
         if operationType == .add {
             viewModel.insertNote()
         }else{
