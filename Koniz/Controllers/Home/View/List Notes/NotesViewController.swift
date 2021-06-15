@@ -7,6 +7,7 @@
 
 import UIKit
 import RealmSwift
+import CoreLocation
 
 class NotesViewController: UIViewController {
 
@@ -16,6 +17,7 @@ class NotesViewController: UIViewController {
     // MARK:- variables
     let notesViewModel = NotesViewModel()
     var notificationToken: NotificationToken?
+    let locationManager = CLLocationManager()
 
     // MARK: - main functions
     override func viewDidLoad() {
@@ -24,10 +26,31 @@ class NotesViewController: UIViewController {
         tableViewConfig()
         addObserver()
         loadData()
+        self.locationManager.requestAlwaysAuthorization()
+        self.locationManager.requestWhenInUseAuthorization()
+        if CLLocationManager.locationServicesEnabled() {
+            locationManager.delegate = self
+            locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
+            locationManager.startUpdatingLocation()
+        }
+
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         addObserver()
+        
+        self.locationManager.requestAlwaysAuthorization()
+        self.locationManager.requestWhenInUseAuthorization()
+        if CLLocationManager.locationServicesEnabled() {
+            locationManager.delegate = self
+            locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
+            locationManager.startUpdatingLocation()
+        }
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        locationManager.stopUpdatingLocation()
     }
     
     // MARK: - observe realm when add and delete and update
@@ -88,4 +111,14 @@ class NotesViewController: UIViewController {
         }
     }
 }
+
+
+extension NotesViewController: CLLocationManagerDelegate {
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        guard let locValue: CLLocationCoordinate2D = manager.location?.coordinate else { return }
+        self.notesViewModel.currentLocation = CLLocation(latitude: locValue.latitude, longitude: locValue.longitude)
+    }
+}
+
 
