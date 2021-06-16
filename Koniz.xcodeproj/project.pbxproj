@@ -9,8 +9,9 @@
 /* Begin PBXBuildFile section */
 		232CDEBB267A0C86001BCD54 /* AddNoteVC+ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 232CDEBA267A0C86001BCD54 /* AddNoteVC+ImagePicker.swift */; };
 		232CDEBF267A1DC1001BCD54 /* NotesVC+CLLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 232CDEBE267A1DC1001BCD54 /* NotesVC+CLLocation.swift */; };
-		238ECB3726764EF80078F569 /* KonizTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 238ECB3626764EF80078F569 /* KonizTests.swift */; };
-		238ECB4226764EF80078F569 /* KonizUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 238ECB4126764EF80078F569 /* KonizUITests.swift */; };
+		237F273F267A3B5900980E8B /* RealmManagerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 237F273E267A3B5900980E8B /* RealmManagerTest.swift */; };
+		237F2742267A3CB300980E8B /* Pods_Koniz.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 237F2741267A3CB300980E8B /* Pods_Koniz.framework */; };
+		237F2743267A3CB300980E8B /* Pods_Koniz.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 237F2741267A3CB300980E8B /* Pods_Koniz.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		238ECB852676530E0078F569 /* Notes.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 238ECB7B2676530E0078F569 /* Notes.storyboard */; };
 		238ECB862676530E0078F569 /* NotesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 238ECB7D2676530E0078F569 /* NotesViewController.swift */; };
 		238ECB872676530E0078F569 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 238ECB7F2676530E0078F569 /* Assets.xcassets */; };
@@ -32,20 +33,10 @@
 		23ED81B02676C9DC003F00FE /* AddNoteVC+CLLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23ED81AF2676C9DC003F00FE /* AddNoteVC+CLLocation.swift */; };
 		23ED81C12676CD10003F00FE /* AddNoteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23ED81C02676CD10003F00FE /* AddNoteViewModel.swift */; };
 		23ED81C72676CE5F003F00FE /* RealmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23ED81C62676CE5F003F00FE /* RealmManager.swift */; };
-		679653F1C83BDF723C9AF81B /* Pods_Koniz.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE0173B03CC86CC3171C1C76 /* Pods_Koniz.framework */; };
-		8D6966185ED4D1758830CABB /* Pods_Koniz_KonizUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5896BDF96F69C039EA9DFC4 /* Pods_Koniz_KonizUITests.framework */; };
-		B54FDBAA85D20910456B9372 /* Pods_KonizTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00805729676A99186CB670C8 /* Pods_KonizTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		238ECB3326764EF80078F569 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 238ECB1426764EF50078F569 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 238ECB1B26764EF50078F569;
-			remoteInfo = Koniz;
-		};
-		238ECB3E26764EF80078F569 /* PBXContainerItemProxy */ = {
+		232CDECB267A35B3001BCD54 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 238ECB1426764EF50078F569 /* Project object */;
 			proxyType = 1;
@@ -54,18 +45,28 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		237F273D267A3A5100980E8B /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				237F2743267A3CB300980E8B /* Pods_Koniz.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
-		00805729676A99186CB670C8 /* Pods_KonizTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KonizTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		0A968E57353D6A18D844956A /* Pods-Koniz-KonizUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Koniz-KonizUITests.release.xcconfig"; path = "Target Support Files/Pods-Koniz-KonizUITests/Pods-Koniz-KonizUITests.release.xcconfig"; sourceTree = "<group>"; };
 		232CDEBA267A0C86001BCD54 /* AddNoteVC+ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AddNoteVC+ImagePicker.swift"; sourceTree = "<group>"; };
 		232CDEBE267A1DC1001BCD54 /* NotesVC+CLLocation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NotesVC+CLLocation.swift"; sourceTree = "<group>"; };
+		232CDEC6267A35B3001BCD54 /* KonizTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KonizTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		232CDECA267A35B3001BCD54 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		237F273E267A3B5900980E8B /* RealmManagerTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmManagerTest.swift; sourceTree = "<group>"; };
+		237F2741267A3CB300980E8B /* Pods_Koniz.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_Koniz.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		238ECB1C26764EF50078F569 /* Koniz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Koniz.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		238ECB3226764EF80078F569 /* KonizTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KonizTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		238ECB3626764EF80078F569 /* KonizTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KonizTests.swift; sourceTree = "<group>"; };
-		238ECB3826764EF80078F569 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		238ECB3D26764EF80078F569 /* KonizUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KonizUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		238ECB4126764EF80078F569 /* KonizUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KonizUITests.swift; sourceTree = "<group>"; };
-		238ECB4326764EF80078F569 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		238ECB7C2676530E0078F569 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Notes.storyboard; sourceTree = "<group>"; };
 		238ECB7D2676530E0078F569 /* NotesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotesViewController.swift; sourceTree = "<group>"; };
 		238ECB7F2676530E0078F569 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -88,52 +89,58 @@
 		23ED81AF2676C9DC003F00FE /* AddNoteVC+CLLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AddNoteVC+CLLocation.swift"; sourceTree = "<group>"; };
 		23ED81C02676CD10003F00FE /* AddNoteViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddNoteViewModel.swift; sourceTree = "<group>"; };
 		23ED81C62676CE5F003F00FE /* RealmManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmManager.swift; sourceTree = "<group>"; };
-		8A3DF6807900E3177493BAE9 /* Pods-KonizTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KonizTests.debug.xcconfig"; path = "Target Support Files/Pods-KonizTests/Pods-KonizTests.debug.xcconfig"; sourceTree = "<group>"; };
-		8B3590BA771F13C19F2C0200 /* Pods-Koniz.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Koniz.release.xcconfig"; path = "Target Support Files/Pods-Koniz/Pods-Koniz.release.xcconfig"; sourceTree = "<group>"; };
-		9E5CFDA4F7740C91CC7F96B5 /* Pods-Koniz.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Koniz.debug.xcconfig"; path = "Target Support Files/Pods-Koniz/Pods-Koniz.debug.xcconfig"; sourceTree = "<group>"; };
-		B86714D6F5103DA4264474C6 /* Pods-KonizTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KonizTests.release.xcconfig"; path = "Target Support Files/Pods-KonizTests/Pods-KonizTests.release.xcconfig"; sourceTree = "<group>"; };
-		C5896BDF96F69C039EA9DFC4 /* Pods_Koniz_KonizUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Koniz_KonizUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		CE0173B03CC86CC3171C1C76 /* Pods_Koniz.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Koniz.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		DF8E0E7E77EFA1EF778283C6 /* Pods-Koniz-KonizUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Koniz-KonizUITests.debug.xcconfig"; path = "Target Support Files/Pods-Koniz-KonizUITests/Pods-Koniz-KonizUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		77D2262474C57A289139538F /* Pods-KonizTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KonizTests.release.xcconfig"; path = "Target Support Files/Pods-KonizTests/Pods-KonizTests.release.xcconfig"; sourceTree = "<group>"; };
+		7BA0211022F94CE708E921F4 /* Pods-Koniz.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Koniz.release.xcconfig"; path = "Target Support Files/Pods-Koniz/Pods-Koniz.release.xcconfig"; sourceTree = "<group>"; };
+		A4C38E498C574D824AE7A508 /* Pods-Koniz.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Koniz.debug.xcconfig"; path = "Target Support Files/Pods-Koniz/Pods-Koniz.debug.xcconfig"; sourceTree = "<group>"; };
+		C59B659E3BD7A506F5ECBAA4 /* Pods-Koniz-KonizUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Koniz-KonizUITests.release.xcconfig"; path = "Target Support Files/Pods-Koniz-KonizUITests/Pods-Koniz-KonizUITests.release.xcconfig"; sourceTree = "<group>"; };
+		D3007927D1D968E8F39B5526 /* Pods-Koniz-KonizUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Koniz-KonizUITests.debug.xcconfig"; path = "Target Support Files/Pods-Koniz-KonizUITests/Pods-Koniz-KonizUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		E7C795D640499F05AF2DDAF0 /* Pods-KonizTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KonizTests.debug.xcconfig"; path = "Target Support Files/Pods-KonizTests/Pods-KonizTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		232CDEC3267A35B3001BCD54 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		238ECB1926764EF50078F569 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				679653F1C83BDF723C9AF81B /* Pods_Koniz.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		238ECB2F26764EF80078F569 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				B54FDBAA85D20910456B9372 /* Pods_KonizTests.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		238ECB3A26764EF80078F569 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				8D6966185ED4D1758830CABB /* Pods_Koniz_KonizUITests.framework in Frameworks */,
+				237F2742267A3CB300980E8B /* Pods_Koniz.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		232CDEC7267A35B3001BCD54 /* KonizTests */ = {
+			isa = PBXGroup;
+			children = (
+				232CDECA267A35B3001BCD54 /* Info.plist */,
+				237F273E267A3B5900980E8B /* RealmManagerTest.swift */,
+			);
+			path = KonizTests;
+			sourceTree = "<group>";
+		};
+		237F2740267A3CB300980E8B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				237F2741267A3CB300980E8B /* Pods_Koniz.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		238ECB1326764EF50078F569 = {
 			isa = PBXGroup;
 			children = (
 				238ECB1E26764EF50078F569 /* Koniz */,
-				238ECB3526764EF80078F569 /* KonizTests */,
-				238ECB4026764EF80078F569 /* KonizUITests */,
+				232CDEC7267A35B3001BCD54 /* KonizTests */,
 				238ECB1D26764EF50078F569 /* Products */,
-				3918F4ADCD7A05019225E01F /* Pods */,
-				60E076B4396646E5C858B292 /* Frameworks */,
+				885C6591305C141B4CED3249 /* Pods */,
+				237F2740267A3CB300980E8B /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -141,8 +148,7 @@
 			isa = PBXGroup;
 			children = (
 				238ECB1C26764EF50078F569 /* Koniz.app */,
-				238ECB3226764EF80078F569 /* KonizTests.xctest */,
-				238ECB3D26764EF80078F569 /* KonizUITests.xctest */,
+				232CDEC6267A35B3001BCD54 /* KonizTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -155,24 +161,6 @@
 				238ECB792676530E0078F569 /* Controllers */,
 			);
 			path = Koniz;
-			sourceTree = "<group>";
-		};
-		238ECB3526764EF80078F569 /* KonizTests */ = {
-			isa = PBXGroup;
-			children = (
-				238ECB3626764EF80078F569 /* KonizTests.swift */,
-				238ECB3826764EF80078F569 /* Info.plist */,
-			);
-			path = KonizTests;
-			sourceTree = "<group>";
-		};
-		238ECB4026764EF80078F569 /* KonizUITests */ = {
-			isa = PBXGroup;
-			children = (
-				238ECB4126764EF80078F569 /* KonizUITests.swift */,
-				238ECB4326764EF80078F569 /* Info.plist */,
-			);
-			path = KonizUITests;
 			sourceTree = "<group>";
 		};
 		238ECB792676530E0078F569 /* Controllers */ = {
@@ -308,32 +296,41 @@
 			path = "Main Classes";
 			sourceTree = "<group>";
 		};
-		3918F4ADCD7A05019225E01F /* Pods */ = {
+		885C6591305C141B4CED3249 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				9E5CFDA4F7740C91CC7F96B5 /* Pods-Koniz.debug.xcconfig */,
-				8B3590BA771F13C19F2C0200 /* Pods-Koniz.release.xcconfig */,
-				DF8E0E7E77EFA1EF778283C6 /* Pods-Koniz-KonizUITests.debug.xcconfig */,
-				0A968E57353D6A18D844956A /* Pods-Koniz-KonizUITests.release.xcconfig */,
-				8A3DF6807900E3177493BAE9 /* Pods-KonizTests.debug.xcconfig */,
-				B86714D6F5103DA4264474C6 /* Pods-KonizTests.release.xcconfig */,
+				A4C38E498C574D824AE7A508 /* Pods-Koniz.debug.xcconfig */,
+				7BA0211022F94CE708E921F4 /* Pods-Koniz.release.xcconfig */,
+				D3007927D1D968E8F39B5526 /* Pods-Koniz-KonizUITests.debug.xcconfig */,
+				C59B659E3BD7A506F5ECBAA4 /* Pods-Koniz-KonizUITests.release.xcconfig */,
+				E7C795D640499F05AF2DDAF0 /* Pods-KonizTests.debug.xcconfig */,
+				77D2262474C57A289139538F /* Pods-KonizTests.release.xcconfig */,
 			);
 			path = Pods;
-			sourceTree = "<group>";
-		};
-		60E076B4396646E5C858B292 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				CE0173B03CC86CC3171C1C76 /* Pods_Koniz.framework */,
-				C5896BDF96F69C039EA9DFC4 /* Pods_Koniz_KonizUITests.framework */,
-				00805729676A99186CB670C8 /* Pods_KonizTests.framework */,
-			);
-			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		232CDEC5267A35B3001BCD54 /* KonizTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 232CDECD267A35B3001BCD54 /* Build configuration list for PBXNativeTarget "KonizTests" */;
+			buildPhases = (
+				1F355EC82B8D471F96D73449 /* [CP] Check Pods Manifest.lock */,
+				232CDEC2267A35B3001BCD54 /* Sources */,
+				232CDEC3267A35B3001BCD54 /* Frameworks */,
+				232CDEC4267A35B3001BCD54 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				232CDECC267A35B3001BCD54 /* PBXTargetDependency */,
+			);
+			name = KonizTests;
+			productName = KonizTests;
+			productReference = 232CDEC6267A35B3001BCD54 /* KonizTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		238ECB1B26764EF50078F569 /* Koniz */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 238ECB4626764EF80078F569 /* Build configuration list for PBXNativeTarget "Koniz" */;
@@ -343,6 +340,7 @@
 				238ECB1926764EF50078F569 /* Frameworks */,
 				238ECB1A26764EF50078F569 /* Resources */,
 				603B915039623AB77573A953 /* [CP] Embed Pods Frameworks */,
+				237F273D267A3A5100980E8B /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -353,64 +351,21 @@
 			productReference = 238ECB1C26764EF50078F569 /* Koniz.app */;
 			productType = "com.apple.product-type.application";
 		};
-		238ECB3126764EF80078F569 /* KonizTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 238ECB4926764EF80078F569 /* Build configuration list for PBXNativeTarget "KonizTests" */;
-			buildPhases = (
-				341CEC19F38AC23BEEC3A462 /* [CP] Check Pods Manifest.lock */,
-				238ECB2E26764EF80078F569 /* Sources */,
-				238ECB2F26764EF80078F569 /* Frameworks */,
-				238ECB3026764EF80078F569 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				238ECB3426764EF80078F569 /* PBXTargetDependency */,
-			);
-			name = KonizTests;
-			productName = KonizTests;
-			productReference = 238ECB3226764EF80078F569 /* KonizTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		238ECB3C26764EF80078F569 /* KonizUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 238ECB4C26764EF80078F569 /* Build configuration list for PBXNativeTarget "KonizUITests" */;
-			buildPhases = (
-				144969A0B8B86D5B5FBE8C3B /* [CP] Check Pods Manifest.lock */,
-				238ECB3926764EF80078F569 /* Sources */,
-				238ECB3A26764EF80078F569 /* Frameworks */,
-				238ECB3B26764EF80078F569 /* Resources */,
-				51630EE31057FD3F8ACA9CD2 /* [CP] Embed Pods Frameworks */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				238ECB3F26764EF80078F569 /* PBXTargetDependency */,
-			);
-			name = KonizUITests;
-			productName = KonizUITests;
-			productReference = 238ECB3D26764EF80078F569 /* KonizUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		238ECB1426764EF50078F569 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1230;
+				LastSwiftUpdateCheck = 1250;
 				LastUpgradeCheck = 1230;
 				TargetAttributes = {
+					232CDEC5267A35B3001BCD54 = {
+						CreatedOnToolsVersion = 12.5;
+						TestTargetID = 238ECB1B26764EF50078F569;
+					};
 					238ECB1B26764EF50078F569 = {
 						CreatedOnToolsVersion = 12.3;
-					};
-					238ECB3126764EF80078F569 = {
-						CreatedOnToolsVersion = 12.3;
-						TestTargetID = 238ECB1B26764EF50078F569;
-					};
-					238ECB3C26764EF80078F569 = {
-						CreatedOnToolsVersion = 12.3;
-						TestTargetID = 238ECB1B26764EF50078F569;
 					};
 				};
 			};
@@ -428,13 +383,19 @@
 			projectRoot = "";
 			targets = (
 				238ECB1B26764EF50078F569 /* Koniz */,
-				238ECB3126764EF80078F569 /* KonizTests */,
-				238ECB3C26764EF80078F569 /* KonizUITests */,
+				232CDEC5267A35B3001BCD54 /* KonizTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		232CDEC4267A35B3001BCD54 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		238ECB1A26764EF50078F569 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -447,46 +408,10 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		238ECB3026764EF80078F569 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		238ECB3B26764EF80078F569 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		144969A0B8B86D5B5FBE8C3B /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Koniz-KonizUITests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		341CEC19F38AC23BEEC3A462 /* [CP] Check Pods Manifest.lock */ = {
+		1F355EC82B8D471F96D73449 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -506,23 +431,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		51630EE31057FD3F8ACA9CD2 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Koniz-KonizUITests/Pods-Koniz-KonizUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Koniz-KonizUITests/Pods-Koniz-KonizUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Koniz-KonizUITests/Pods-Koniz-KonizUITests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		603B915039623AB77573A953 /* [CP] Embed Pods Frameworks */ = {
@@ -567,6 +475,14 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		232CDEC2267A35B3001BCD54 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				237F273F267A3B5900980E8B /* RealmManagerTest.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		238ECB1826764EF50078F569 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -592,34 +508,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		238ECB2E26764EF80078F569 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				238ECB3726764EF80078F569 /* KonizTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		238ECB3926764EF80078F569 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				238ECB4226764EF80078F569 /* KonizUITests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		238ECB3426764EF80078F569 /* PBXTargetDependency */ = {
+		232CDECC267A35B3001BCD54 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 238ECB1B26764EF50078F569 /* Koniz */;
-			targetProxy = 238ECB3326764EF80078F569 /* PBXContainerItemProxy */;
-		};
-		238ECB3F26764EF80078F569 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 238ECB1B26764EF50078F569 /* Koniz */;
-			targetProxy = 238ECB3E26764EF80078F569 /* PBXContainerItemProxy */;
+			targetProxy = 232CDECB267A35B3001BCD54 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -643,6 +538,58 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		232CDECE267A35B3001BCD54 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E7C795D640499F05AF2DDAF0 /* Pods-KonizTests.debug.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = VQU76VH8CY;
+				INFOPLIST_FILE = KonizTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.Nowpay.KonizTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Koniz.app/Koniz";
+			};
+			name = Debug;
+		};
+		232CDECF267A35B3001BCD54 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 77D2262474C57A289139538F /* Pods-KonizTests.release.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = VQU76VH8CY;
+				INFOPLIST_FILE = KonizTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.Nowpay.KonizTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Koniz.app/Koniz";
+			};
+			name = Release;
+		};
 		238ECB4426764EF80078F569 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -761,11 +708,13 @@
 		};
 		238ECB4726764EF80078F569 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9E5CFDA4F7740C91CC7F96B5 /* Pods-Koniz.debug.xcconfig */;
+			baseConfigurationReference = A4C38E498C574D824AE7A508 /* Pods-Koniz.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = VQU76VH8CY;
 				INFOPLIST_FILE = Koniz/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -774,6 +723,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.Nowpay.Koniz;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -781,11 +731,13 @@
 		};
 		238ECB4826764EF80078F569 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8B3590BA771F13C19F2C0200 /* Pods-Koniz.release.xcconfig */;
+			baseConfigurationReference = 7BA0211022F94CE708E921F4 /* Pods-Koniz.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = VQU76VH8CY;
 				INFOPLIST_FILE = Koniz/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -794,102 +746,24 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.Nowpay.Koniz;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Release;
-		};
-		238ECB4A26764EF80078F569 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8A3DF6807900E3177493BAE9 /* Pods-KonizTests.debug.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = VQU76VH8CY;
-				INFOPLIST_FILE = KonizTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.Nowpay.KonizTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Koniz.app/Koniz";
-			};
-			name = Debug;
-		};
-		238ECB4B26764EF80078F569 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = B86714D6F5103DA4264474C6 /* Pods-KonizTests.release.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = VQU76VH8CY;
-				INFOPLIST_FILE = KonizTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.Nowpay.KonizTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Koniz.app/Koniz";
-			};
-			name = Release;
-		};
-		238ECB4D26764EF80078F569 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = DF8E0E7E77EFA1EF778283C6 /* Pods-Koniz-KonizUITests.debug.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = VQU76VH8CY;
-				INFOPLIST_FILE = KonizUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.Nowpay.KonizUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = Koniz;
-			};
-			name = Debug;
-		};
-		238ECB4E26764EF80078F569 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0A968E57353D6A18D844956A /* Pods-Koniz-KonizUITests.release.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = VQU76VH8CY;
-				INFOPLIST_FILE = KonizUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.Nowpay.KonizUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = Koniz;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		232CDECD267A35B3001BCD54 /* Build configuration list for PBXNativeTarget "KonizTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				232CDECE267A35B3001BCD54 /* Debug */,
+				232CDECF267A35B3001BCD54 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		238ECB1726764EF50078F569 /* Build configuration list for PBXProject "Koniz" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -904,24 +778,6 @@
 			buildConfigurations = (
 				238ECB4726764EF80078F569 /* Debug */,
 				238ECB4826764EF80078F569 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		238ECB4926764EF80078F569 /* Build configuration list for PBXNativeTarget "KonizTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				238ECB4A26764EF80078F569 /* Debug */,
-				238ECB4B26764EF80078F569 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		238ECB4C26764EF80078F569 /* Build configuration list for PBXNativeTarget "KonizUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				238ECB4D26764EF80078F569 /* Debug */,
-				238ECB4E26764EF80078F569 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

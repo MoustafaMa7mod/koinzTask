@@ -27,8 +27,6 @@ class NotesViewController: UIViewController {
         startTrackingUser()
         addObserver()
         loadData()
-       
-
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)

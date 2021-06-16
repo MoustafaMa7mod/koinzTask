@@ -66,12 +66,25 @@ class AddNoteViewModel {
         parseDataFromView()
         getCurrentDate()
         noteObject.id = RealmManager.shared.incrementaID()
-        RealmManager.shared.insertIntoDatabase(self.noteObject)
+        do {
+            try RealmManager.shared.insertIntoDatabase(self.noteObject)
+        } catch RuntimeError.NoRealmSet {
+            print("No realm database was set")
+        } catch {
+            print("Unexpected error \(error)")
+        }
     }
     
     func updateNote() {
-        RealmManager.shared.updateIntoDatabase(object: self.noteObject) {
-            parseDataFromView()
+        do {
+            try RealmManager.shared.updateIntoDatabase(object: self.noteObject) {
+                parseDataFromView()
+            }
+
+        } catch RuntimeError.NoRealmSet {
+            print("No realm database was set")
+        } catch {
+            print("Unexpected error \(error)")
         }
     }
     

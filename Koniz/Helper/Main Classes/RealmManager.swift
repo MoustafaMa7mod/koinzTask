@@ -8,13 +8,16 @@
 import Foundation
 import RealmSwift
 
+enum RuntimeError: Error {
+    case NoRealmSet
+}
 class RealmManager{
     
     static var shared = RealmManager()
-    let realm = try? Realm()
+    var realm: Realm?
 
-    func insertIntoDatabase(_ object: NoteObject){
-        guard let realm = realm else { return }
+    func insertIntoDatabase(_ object: NoteObject) throws{
+        guard let realm = realm else { throw RuntimeError.NoRealmSet }
         try? realm.write {
             realm.add(object)
         }
@@ -25,23 +28,23 @@ class RealmManager{
         return id
     }
     
-    func fetchFromRealm() -> Results<NoteObject>?{
-        guard let realm = realm else { return nil }
+    func fetchFromRealm() throws -> Results<NoteObject>{
+        guard let realm = realm else { throw RuntimeError.NoRealmSet }
         let object = realm.objects(NoteObject.self)
         return object
     }
     
     
-    func updateIntoDatabase(object: NoteObject , closure:()->Void){
-        guard let realm = realm else { return }
+    func updateIntoDatabase(object: NoteObject , closure:()->Void) throws{
+        guard let realm = realm else { throw RuntimeError.NoRealmSet }
         try? realm.write {
             closure()
             realm.create(NoteObject.self, value: object, update: .modified)
         }
     }
     
-    func deleteFromDatabase(_ object: NoteObject) {
-        guard let realm = realm else { return }
+    func deleteFromDatabase(_ object: NoteObject) throws{
+        guard let realm = realm else { throw RuntimeError.NoRealmSet }
         try? realm.write {
             realm.delete(object)
         }

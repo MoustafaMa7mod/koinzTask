@@ -18,14 +18,20 @@ class NotesViewModel {
 
     
     func getData(completion: @escaping(Bool)->Void) {
-        if let noteList = RealmManager.shared.fetchFromRealm() {
+        do {
+            let noteList = try RealmManager.shared.fetchFromRealm()
             notes = noteList
             notesArray = Array(noteList)
             notesArray = noteList.sorted(by: {self.convertDateToString($0.created).compare(self.convertDateToString($1.created)) == .orderedDescending})
             guard let nerbeyLocation = getNearbyLocation() else {return}
             notesArray = [nerbeyLocation] + notesArray.filter({$0 != nerbeyLocation})
             completion(true)
+        } catch RuntimeError.NoRealmSet {
+            print("No realm database was set")
+        } catch {
+            print("Unexpected error \(error)")
         }
+     
     }
     
     func updateCurrentData( notesUpdated: Results<NoteObject>? ,completion: @escaping(Bool)->Void) {
@@ -40,9 +46,16 @@ class NotesViewModel {
     }
     
     func deleteNote(withIndex index: Int ,completion: @escaping(Bool)->Void){
-        let object = self.getEachNotes(index)
-        RealmManager.shared.deleteFromDatabase(object)
-        completion(true)
+        do {
+            let object = self.getEachNotes(index)
+            try RealmManager.shared.deleteFromDatabase(object)
+            completion(true)
+        } catch RuntimeError.NoRealmSet {
+            print("No realm database was set")
+        } catch {
+            print("Unexpected error \(error)")
+        }
+        
     }
     
     func getCountOfNotes() -> Int{

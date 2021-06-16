@@ -37,6 +37,8 @@
 	<string>Allow Koniz to detect current location</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>Allow Koniz to detect current location</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Allow Koniz to access photo album</string>
 	<key>UIApplicationSupportsIndirectInputEvents</key>
 	<true/>
 	<key>UILaunchStoryboardName</key>
@@ -50,8 +52,6 @@
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
-		<string>UIInterfaceOrientationLandscapeLeft</string>
-		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
 	<key>UISupportedInterfaceOrientations~ipad</key>
 	<array>
@@ -62,7 +62,5 @@
 	</array>
 	<key>UIUserInterfaceStyle</key>
 	<string>Light</string>
-	<key>NSPhotoLibraryUsageDescription</key>
-	<string>Allow Koniz to access photo album</string>
 </dict>
 </plist>
