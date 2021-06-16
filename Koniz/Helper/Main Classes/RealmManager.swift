@@ -13,9 +13,12 @@ enum RuntimeError: Error {
 }
 class RealmManager{
     
-    static var shared = RealmManager()
     var realm: Realm?
 
+    init(){
+        realm = try! Realm()
+    }
+    
     func insertIntoDatabase(_ object: NoteObject) throws{
         guard let realm = realm else { throw RuntimeError.NoRealmSet }
         try? realm.write {

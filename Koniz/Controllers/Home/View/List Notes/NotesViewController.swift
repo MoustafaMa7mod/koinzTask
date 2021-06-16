@@ -33,11 +33,6 @@ class NotesViewController: UIViewController {
         addObserver()
         startTrackingUser()
     }
-    override func viewDidDisappear(_ animated: Bool) {
-        super.viewDidDisappear(animated)
-        locationManager.stopUpdatingLocation()
-    }
-    
 
     // MARK:- navigation setting
     private func navigationConfig(){

@@ -14,7 +14,6 @@ import RealmSwift
 class AddNoteViewModel {
     
     var noteObject = NoteObject()
-    var imageLocalName = "\(RealmManager.shared.incrementaID())-noteImage.png"
     let noteTitle =  BehaviorRelay<String>(value: "")
     let noteBody = BehaviorRelay<String>(value: "")
     var noteImagePath = BehaviorRelay<String>(value: "")
@@ -23,7 +22,8 @@ class AddNoteViewModel {
     let noteLatitude = BehaviorRelay<Double>(value: 0.0)
     let noteLongitude = BehaviorRelay<Double>(value: 0.0)
     var disposed = DisposeBag()
-    
+    var realm = RealmManager()
+    var imageLocalName = "\(RealmManager().incrementaID())-noteImage.png"
     var reloadView: () -> () = {  }
 
 
@@ -63,11 +63,11 @@ class AddNoteViewModel {
     }
     
     func insertNote() {
-        parseDataFromView()
-        getCurrentDate()
-        noteObject.id = RealmManager.shared.incrementaID()
         do {
-            try RealmManager.shared.insertIntoDatabase(self.noteObject)
+            parseDataFromView()
+            getCurrentDate()
+            noteObject.id = realm.incrementaID()
+            try realm.insertIntoDatabase(self.noteObject)
         } catch RuntimeError.NoRealmSet {
             print("No realm database was set")
         } catch {
@@ -77,7 +77,7 @@ class AddNoteViewModel {
     
     func updateNote() {
         do {
-            try RealmManager.shared.updateIntoDatabase(object: self.noteObject) {
+            try realm.updateIntoDatabase(object: self.noteObject) {
                 parseDataFromView()
             }
 

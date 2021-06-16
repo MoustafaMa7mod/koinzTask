@@ -13,6 +13,9 @@ extension AddNoteViewController: UINavigationControllerDelegate, UIImagePickerCo
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         let selectedImage = info[.originalImage] as? UIImage
+        self.notedImage.isHidden = false
+        self.imageViewHeight.constant = 140
+        self.addPhotoLabel.isHidden = true
         self.notedImage.image = selectedImage
         if operationType == .edit {
             self.notedImage.image?.deleteImageFromDocs(imageName: viewModel.imageLocalName)

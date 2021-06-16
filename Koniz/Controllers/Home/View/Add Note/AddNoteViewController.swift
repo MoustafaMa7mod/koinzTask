@@ -26,7 +26,8 @@ class AddNoteViewController: UIViewController {
     @IBOutlet weak var addImageView: UIView!
     @IBOutlet weak var notedImage: UIImageView!
     @IBOutlet weak var noteLocationLabel: UILabel!
-    
+    @IBOutlet weak var imageViewHeight: NSLayoutConstraint!
+    @IBOutlet weak var addPhotoLabel: UILabel!
     // MARK:- variables
     lazy var imagePickerController: UIImagePickerController = {
         let controller = UIImagePickerController()
@@ -54,18 +55,6 @@ class AddNoteViewController: UIViewController {
         navigationConfig()
         configure(with: viewModel)
         showDataWhenEditNote(viewModel: viewModel)
-        
-        print(Realm.Configuration.defaultConfiguration.fileURL)
-
-//                guard let path = Realm.Configuration.defaultConfiguration.fileURL?.path else {
-//                    fatalError("no realm path")
-//                }
-//
-//                do {
-//                    try FileManager().removeItem(atPath: path)
-//                } catch {
-//                    fatalError("couldn't remove at path")
-//                }
     }
     
     // MARK:- navigation setting
@@ -110,9 +99,15 @@ class AddNoteViewController: UIViewController {
             self.imagePathValue.accept(viewModel.noteImagePath.value)
 
             if let image = UIImage().renderImageFromDocs(imageName: viewModel.noteImagePath.value) {
+                self.notedImage.isHidden = false
+                self.imageViewHeight.constant = 140
+                self.addPhotoLabel.isHidden = true
                 self.notedImage.image = image
             }else{
-//                self?.updateLogo(urlString: (self?.addExpenseViewModel.imageURL.value)!)
+                self.notedImage.isHidden = true
+                self.imageViewHeight.constant = 60
+                self.addPhotoLabel.isHidden = false
+
             }
             self.configure(with: viewModel)
         }

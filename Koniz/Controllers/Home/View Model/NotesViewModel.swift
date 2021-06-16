@@ -15,15 +15,19 @@ class NotesViewModel {
     var notesArray = [NoteObject]()
     var notificationToken: NotificationToken?
     var currentLocation = CLLocation()
+    var realm = RealmManager()
 
     
     func getData(completion: @escaping(Bool)->Void) {
         do {
-            let noteList = try RealmManager.shared.fetchFromRealm()
+            let noteList = try realm.fetchFromRealm()
             notes = noteList
             notesArray = Array(noteList)
             notesArray = noteList.sorted(by: {self.convertDateToString($0.created).compare(self.convertDateToString($1.created)) == .orderedDescending})
-            guard let nerbeyLocation = getNearbyLocation() else {return}
+            guard let nerbeyLocation = getNearbyLocation() else {
+                completion(false)
+                return
+            }
             notesArray = [nerbeyLocation] + notesArray.filter({$0 != nerbeyLocation})
             completion(true)
         } catch RuntimeError.NoRealmSet {
@@ -39,7 +43,10 @@ class NotesViewModel {
             notes = notesUpdated
             notesArray = Array(noteList)
             notesArray = noteList.sorted(by: {self.convertDateToString($0.created).compare(self.convertDateToString($1.created)) == .orderedDescending})
-            guard let nerbeyLocation = getNearbyLocation() else {return}
+            guard let nerbeyLocation = getNearbyLocation() else {
+                completion(false)
+                return
+            }
             notesArray = [nerbeyLocation] + notesArray.filter({$0 != nerbeyLocation})
             completion(true)
         }
@@ -48,7 +55,7 @@ class NotesViewModel {
     func deleteNote(withIndex index: Int ,completion: @escaping(Bool)->Void){
         do {
             let object = self.getEachNotes(index)
-            try RealmManager.shared.deleteFromDatabase(object)
+            try realm.deleteFromDatabase(object)
             completion(true)
         } catch RuntimeError.NoRealmSet {
             print("No realm database was set")
