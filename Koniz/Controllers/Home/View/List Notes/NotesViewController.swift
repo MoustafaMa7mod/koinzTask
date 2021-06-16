@@ -40,27 +40,14 @@ class NotesViewController: UIViewController {
         locationManager.stopUpdatingLocation()
     }
     
-    // MARK: - observe realm when add and delete and update
-    func addObserver() {
-        notificationToken = self.notesViewModel.notes?.observe() { [weak self] (changes) in
-            guard let self = self else {return}
-            switch changes {
-            case .initial(let notes):
-                print("Initial case \(notes.count)")
-                self.updateDataInRealm(notes)
-            case .update(let notes, let deletions, let insertions, let modifications):
-                print(notes.count)
-                print(deletions)
-                print(modifications)
-                print(insertions)
-                self.updateDataInRealm(notes)
-            case .error(let error):
-                print(error.localizedDescription)
-            }
-        }
-        
-    }
 
+    // MARK:- navigation setting
+    private func navigationConfig(){
+        title = "Notes"
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(AddNewNote))
+
+    }
+    
     
     // MARK:- table view setting
     private func tableViewConfig(){
@@ -70,13 +57,24 @@ class NotesViewController: UIViewController {
         tableView.registerCellNib(cellClass: NoteCell.self)
     }
     
-    // MARK:- navigation setting
-    private func navigationConfig(){
-        title = "Notes"
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(AddNewNote))
-
+    // MARK: - observe realm when add and delete and update
+    func addObserver() {
+        notificationToken = self.notesViewModel.notes?.observe() { [weak self] (changes) in
+            guard let self = self else {return}
+            switch changes {
+            case .initial(let notes):
+                print("Initial case \(notes.count)")
+                self.updateDataInRealm(notes)
+            case .update(let notes, _, _, _):
+                self.updateDataInRealm(notes)
+            case .error(let error):
+                print(error.localizedDescription)
+            }
+        }
+        
     }
     
+    // MARK: - start tracking location when user allow premission
     private func startTrackingUser(){
         if CLLocationManager.locationServicesEnabled() {
             locationManager.delegate = self
@@ -84,13 +82,8 @@ class NotesViewController: UIViewController {
             locationManager.startUpdatingLocation()
         }
     }
-
-    @objc func AddNewNote(){
-        let viewController = AddNoteViewController.instantiate()
-        viewController.operationType = .add
-        self.navigationController?.pushViewController(viewController, animated: true)
-    }
     
+    // MARK: - load data from realm
     private func loadData(){
         notesViewModel.getData { [weak self] loadTableView in
             guard let self = self else {return}
@@ -98,10 +91,19 @@ class NotesViewController: UIViewController {
         }
     }
     
+    // MARK: - update realm data when change in note list
     private func updateDataInRealm(_ notesUpdated: Results<NoteObject>? ){
         self.notesViewModel.updateCurrentData(notesUpdated: notesUpdated) { [weak self] loadTableView in
             guard let self = self else {return}
             self.tableView.reloadData()
         }
     }
+    
+    // MARK: - Action to add new note
+    @objc func AddNewNote(){
+        let viewController = AddNoteViewController.instantiate()
+        viewController.operationType = .add
+        self.navigationController?.pushViewController(viewController, animated: true)
+    }
+    
 }
