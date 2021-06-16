@@ -22,10 +22,8 @@ class NotesViewModel {
             notes = noteList
             notesArray = Array(noteList)
             notesArray = noteList.sorted(by: {self.convertDateToString($0.created).compare(self.convertDateToString($1.created)) == .orderedDescending})
-            print(notesArray)
-            let nerbeyLocation = getNearbyLocation()
+            guard let nerbeyLocation = getNearbyLocation() else {return}
             notesArray = [nerbeyLocation] + notesArray.filter({$0 != nerbeyLocation})
-            print(notesArray)
             completion(true)
         }
     }
@@ -35,10 +33,8 @@ class NotesViewModel {
             notes = notesUpdated
             notesArray = Array(noteList)
             notesArray = noteList.sorted(by: {self.convertDateToString($0.created).compare(self.convertDateToString($1.created)) == .orderedDescending})
-            let nerbeyLocation = getNearbyLocation()
+            guard let nerbeyLocation = getNearbyLocation() else {return}
             notesArray = [nerbeyLocation] + notesArray.filter({$0 != nerbeyLocation})
-            print(notesArray)
-
             completion(true)
         }
     }
@@ -68,17 +64,21 @@ class NotesViewModel {
 
     }
     
-    func getNearbyLocation() -> NoteObject{
+    func getNearbyLocation() -> NoteObject?{
         let initialNoteObject = NoteObject()
-        return self.notesArray.reduce(initialNoteObject) {
-            guard $0 != initialNoteObject else { return $1 }
-            let locationOne = CLLocation(latitude: $0.noteLatitude, longitude: $0.noteLongitude)
-            let locationTwo = CLLocation(latitude: $1.noteLatitude , longitude: $1.noteLongitude)
-            let distanceOne = currentLocation.distance(from: locationOne)
-            let distanceTwo = currentLocation.distance(from: locationTwo)
-            
-            return distanceOne > distanceTwo ? $1:$0
+        if self.notesArray.count != 0 {
+            return self.notesArray.reduce(initialNoteObject) {
+                guard $0 != initialNoteObject else { return $1 }
+                let locationOne = CLLocation(latitude: $0.noteLatitude, longitude: $0.noteLongitude)
+                let locationTwo = CLLocation(latitude: $1.noteLatitude , longitude: $1.noteLongitude)
+                let distanceOne = currentLocation.distance(from: locationOne)
+                let distanceTwo = currentLocation.distance(from: locationTwo)
+                
+                return distanceOne > distanceTwo ? $1:$0
+            }
         }
+        
+        return nil
         
     }
     

@@ -30,9 +30,19 @@ class AddNoteViewController: UIViewController {
     lazy var imagePickerController: UIImagePickerController = {
         let controller = UIImagePickerController()
         controller.delegate = self
-        controller.sourceType = .photoLibrary
+        controller.sourceType = .savedPhotosAlbum
         return controller
     }()
+    
+//    if UIImagePickerController.isSourceTypeAvailable(.savedPhotosAlbum){
+//                print("Button capture")
+//
+//                imagePicker.delegate = self
+//                imagePicker.sourceType = .savedPhotosAlbum
+//                imagePicker.allowsEditing = false
+//
+//                present(imagePicker, animated: true, completion: nil)
+//            }
     
     let locationManager = CLLocationManager()
     var viewModel = AddNoteViewModel()
@@ -53,17 +63,17 @@ class AddNoteViewController: UIViewController {
         configure(with: viewModel)
         showDataWhenEditNote(viewModel: viewModel)
         
-//        print(Realm.Configuration.defaultConfiguration.fileURL)
-//        guard let path = Realm.Configuration.defaultConfiguration.fileURL?.path else {
-//            fatalError("no realm path")
-//        }
-//
-//        do {
-//            try FileManager().removeItem(atPath: path)
-//        } catch {
-//            fatalError("couldn't remove at path")
-//        }
+        print(Realm.Configuration.defaultConfiguration.fileURL)
 
+//                guard let path = Realm.Configuration.defaultConfiguration.fileURL?.path else {
+//                    fatalError("no realm path")
+//                }
+//
+//                do {
+//                    try FileManager().removeItem(atPath: path)
+//                } catch {
+//                    fatalError("couldn't remove at path")
+//                }
     }
     
     // MARK:- navigation setting

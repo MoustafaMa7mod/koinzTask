@@ -24,30 +24,17 @@ class NotesViewController: UIViewController {
         super.viewDidLoad()
         navigationConfig()
         tableViewConfig()
+        startTrackingUser()
         addObserver()
         loadData()
-        self.locationManager.requestAlwaysAuthorization()
-        self.locationManager.requestWhenInUseAuthorization()
-        if CLLocationManager.locationServicesEnabled() {
-            locationManager.delegate = self
-            locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
-            locationManager.startUpdatingLocation()
-        }
+       
 
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         addObserver()
-        
-        self.locationManager.requestAlwaysAuthorization()
-        self.locationManager.requestWhenInUseAuthorization()
-        if CLLocationManager.locationServicesEnabled() {
-            locationManager.delegate = self
-            locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
-            locationManager.startUpdatingLocation()
-        }
+        startTrackingUser()
     }
-    
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         locationManager.stopUpdatingLocation()
@@ -89,6 +76,14 @@ class NotesViewController: UIViewController {
         title = "Notes"
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(AddNewNote))
 
+    }
+    
+    private func startTrackingUser(){
+        if CLLocationManager.locationServicesEnabled() {
+            locationManager.delegate = self
+            locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
+            locationManager.startUpdatingLocation()
+        }
     }
 
     @objc func AddNewNote(){
