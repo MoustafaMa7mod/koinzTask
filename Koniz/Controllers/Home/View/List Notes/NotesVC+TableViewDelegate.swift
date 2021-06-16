@@ -51,7 +51,5 @@ extension NotesViewController: UITableViewDelegate , UITableViewDataSource {
         }
     }
     
-
-    
 }
 

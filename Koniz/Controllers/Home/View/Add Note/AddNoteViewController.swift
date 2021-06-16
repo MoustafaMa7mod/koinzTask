@@ -10,6 +10,7 @@ import RealmSwift
 import CoreLocation
 import RxCocoa
 import RxSwift
+import Photos
 
 enum OperationType {
     case edit
@@ -31,18 +32,9 @@ class AddNoteViewController: UIViewController {
         let controller = UIImagePickerController()
         controller.delegate = self
         controller.sourceType = .savedPhotosAlbum
+        controller.allowsEditing = false
         return controller
     }()
-    
-//    if UIImagePickerController.isSourceTypeAvailable(.savedPhotosAlbum){
-//                print("Button capture")
-//
-//                imagePicker.delegate = self
-//                imagePicker.sourceType = .savedPhotosAlbum
-//                imagePicker.allowsEditing = false
-//
-//                present(imagePicker, animated: true, completion: nil)
-//            }
     
     let locationManager = CLLocationManager()
     var viewModel = AddNoteViewModel()
@@ -145,7 +137,7 @@ class AddNoteViewController: UIViewController {
     
     // MARK: - Actions
     @objc func uploadPhoto(tapGestureRecognizer: UITapGestureRecognizer){
-        self.present(imagePickerController, animated: true, completion: nil)
+        self.checkPhotoLibraryPermission()
     }
     
     @objc func getCurrentUserLocation(tapGestureRecognizer: UITapGestureRecognizer){
@@ -172,23 +164,4 @@ class AddNoteViewController: UIViewController {
         }
         self.navigationController?.popViewController(animated: true)
     }
-}
-
-extension AddNoteViewController: UINavigationControllerDelegate, UIImagePickerControllerDelegate {
-    
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        let selectedImage = info[.originalImage] as? UIImage
-        self.notedImage.image = selectedImage
-        if operationType == .edit {
-            self.notedImage.image?.deleteImageFromDocs(imageName: viewModel.imageLocalName)
-            self.notedImage.image?.writeImageToDocs(imageName: viewModel.imageLocalName )
-        }else{
-            self.notedImage.image?.writeImageToDocs(imageName: viewModel.imageLocalName )
-        }
-        
-        self.imagePathValue.accept(viewModel.imageLocalName)
-        self.configure(with: viewModel)
-        self.dismiss(animated: true, completion: nil)
-    }
-    
 }

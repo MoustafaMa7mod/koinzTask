@@ -44,7 +44,6 @@ class NotesViewController: UIViewController {
     func addObserver() {
         notificationToken = self.notesViewModel.notes?.observe() { [weak self] (changes) in
             guard let self = self else {return}
-            
             switch changes {
             case .initial(let notes):
                 print("Initial case \(notes.count)")
@@ -106,14 +105,3 @@ class NotesViewController: UIViewController {
         }
     }
 }
-
-
-extension NotesViewController: CLLocationManagerDelegate {
-    
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        guard let locValue: CLLocationCoordinate2D = manager.location?.coordinate else { return }
-        self.notesViewModel.currentLocation = CLLocation(latitude: locValue.latitude, longitude: locValue.longitude)
-    }
-}
-
-

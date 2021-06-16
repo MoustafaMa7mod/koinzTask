@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		232CDEBB267A0C86001BCD54 /* AddNoteVC+ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 232CDEBA267A0C86001BCD54 /* AddNoteVC+ImagePicker.swift */; };
+		232CDEBF267A1DC1001BCD54 /* NotesVC+CLLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 232CDEBE267A1DC1001BCD54 /* NotesVC+CLLocation.swift */; };
 		238ECB3726764EF80078F569 /* KonizTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 238ECB3626764EF80078F569 /* KonizTests.swift */; };
 		238ECB4226764EF80078F569 /* KonizUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 238ECB4126764EF80078F569 /* KonizUITests.swift */; };
 		238ECB852676530E0078F569 /* Notes.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 238ECB7B2676530E0078F569 /* Notes.storyboard */; };
@@ -55,6 +57,8 @@
 /* Begin PBXFileReference section */
 		00805729676A99186CB670C8 /* Pods_KonizTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KonizTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0A968E57353D6A18D844956A /* Pods-Koniz-KonizUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Koniz-KonizUITests.release.xcconfig"; path = "Target Support Files/Pods-Koniz-KonizUITests/Pods-Koniz-KonizUITests.release.xcconfig"; sourceTree = "<group>"; };
+		232CDEBA267A0C86001BCD54 /* AddNoteVC+ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AddNoteVC+ImagePicker.swift"; sourceTree = "<group>"; };
+		232CDEBE267A1DC1001BCD54 /* NotesVC+CLLocation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NotesVC+CLLocation.swift"; sourceTree = "<group>"; };
 		238ECB1C26764EF50078F569 /* Koniz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Koniz.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		238ECB3226764EF80078F569 /* KonizTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KonizTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		238ECB3626764EF80078F569 /* KonizTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KonizTests.swift; sourceTree = "<group>"; };
@@ -228,6 +232,7 @@
 				238ECBA5267655CE0078F569 /* Cell */,
 				238ECB7D2676530E0078F569 /* NotesViewController.swift */,
 				238ECB9C267655430078F569 /* NotesVC+TableViewDelegate.swift */,
+				232CDEBE267A1DC1001BCD54 /* NotesVC+CLLocation.swift */,
 			);
 			path = "List Notes";
 			sourceTree = "<group>";
@@ -263,6 +268,7 @@
 			children = (
 				23ED8189267699CE003F00FE /* AddNoteViewController.swift */,
 				23ED81AF2676C9DC003F00FE /* AddNoteVC+CLLocation.swift */,
+				232CDEBA267A0C86001BCD54 /* AddNoteVC+ImagePicker.swift */,
 			);
 			path = "Add Note";
 			sourceTree = "<group>";
@@ -568,6 +574,7 @@
 				23ED81B02676C9DC003F00FE /* AddNoteVC+CLLocation.swift in Sources */,
 				238ECB98267653C20078F569 /* UIView.swift in Sources */,
 				238ECB93267653AB0078F569 /* UITableView+Extensions.swift in Sources */,
+				232CDEBB267A0C86001BCD54 /* AddNoteVC+ImagePicker.swift in Sources */,
 				23ED81A82676B95A003F00FE /* UIImage.swift in Sources */,
 				23ED818A267699CE003F00FE /* AddNoteViewController.swift in Sources */,
 				23ED81C72676CE5F003F00FE /* RealmManager.swift in Sources */,
@@ -576,6 +583,7 @@
 				23ED81A02676B17B003F00FE /* NoteObject.swift in Sources */,
 				238ECBA8267655E60078F569 /* NoteCell.swift in Sources */,
 				238ECB862676530E0078F569 /* NotesViewController.swift in Sources */,
+				232CDEBF267A1DC1001BCD54 /* NotesVC+CLLocation.swift in Sources */,
 				23E9146E2677969500B8BC61 /* NotesViewModel.swift in Sources */,
 				238ECBBB267662D40078F569 /* EmptyView.swift in Sources */,
 				238ECB9D267655430078F569 /* NotesVC+TableViewDelegate.swift in Sources */,
